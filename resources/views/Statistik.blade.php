@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -14,9 +14,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="">
-    <x-Navbar title="DiPrest UPR"></x-Navbar>
-
+<body>
+    <x-Navbar title="Statistik UPR"></x-Navbar>
     <div class="relative isolate overflow-hidden bg-gray-900 min-h-screen flex items-center py-24 sm:py-32">
         <!-- <img src="image/rektorat.png" alt="" class="absolute inset-0 -z-10 size-full object-cover object-right md:object-center" /> -->
         <div aria-hidden="true" class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl">
@@ -27,15 +26,15 @@
         </div>
         <div class="mx-auto max-w-7xl px-6 lg:px-8 w-full">
             <div class="mx-auto max-w-2xl lg:mx-0">
-                <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Jejak Prestasi UPR</h2>
+                <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Statistik Prestasi UPR</h2>
                 <p class="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">Satu pintu untuk data prestasi, penelitian, organisasi, dan berbagai aktivitas akademik serta kemahasiswaan.</p>
             </div>
             <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
                 <div class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-                    <a href="#">Data prestasi <span aria-hidden="true">&rarr;</span></a>
-                    <a href="#">Data organisasi <span aria-hidden="true">&rarr;</span></a>
-                    <a href="#">Data penelitian <span aria-hidden="true">&rarr;</span></a>
-                    <a href="#">Lainya <span aria-hidden="true">&rarr;</span></a>
+                @foreach ($cards as $card)    
+                    <a href="#">{{$card['title']}} <span aria-hidden="true">&rarr;</span></a>
+                @endforeach    
+                    
                 </div>
                 <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
                     <div class="flex flex-col-reverse gap-1">
@@ -64,7 +63,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
