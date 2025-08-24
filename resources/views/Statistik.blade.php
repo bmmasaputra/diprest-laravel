@@ -55,7 +55,7 @@
                     </div>
                     <div class="flex flex-col-reverse gap-1" max-w-[180px] break-words whitespace-normal>
                         <dt class="text-base/7 text-gray-300 max-w-[180px] break-words whitespace-normal">
-                            Mahasiswa magang & pertukaran
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore ratione perspiciatis explicabo, porro deserunt quod quam a omnis molestiae! Autem sunt nesciunt quia quo quasi numquam eligendi explicabo accusantium ipsum!
                         </dt>
                         <dd class="text-4xl font-semibold tracking-tight text-white">500+</dd>
                     </div>
