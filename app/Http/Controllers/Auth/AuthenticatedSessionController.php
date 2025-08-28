@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +21,6 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-
     public function store(Request $request): RedirectResponse
     {
         // Validate login form
@@ -31,11 +29,11 @@ class AuthenticatedSessionController extends Controller
             'password' => ['required', 'string'],
         ]);
 
-        // Attempt login using 'admins' guard
-        if (Auth::guard('admins')->attempt($credentials, $request->boolean('remember'))) {
+        // Attempt login using default guard (web)
+        if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
 
-            // Redirect to admin dashboard after login
+            // Redirect to user dashboard after login
             return redirect()->intended(route('admin.dashboard'));
         }
 
@@ -45,16 +43,14 @@ class AuthenticatedSessionController extends Controller
         ])->onlyInput('username');
     }
 
-
     /**
      * Destroy an authenticated session.
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('admins')->logout();
+        Auth::logout(); // default guard
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
         return redirect('/');

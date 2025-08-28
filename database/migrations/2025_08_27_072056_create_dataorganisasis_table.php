@@ -11,9 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dataorganisasis', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('dataorganisasi', function (Blueprint $table) {
+            $table->integer('id_organisasi')->primary();
+            $table->string('nim', 20);
+            $table->string('tingkat_organisasi', 255)->nullable();
+            $table->string('nama_organisasi', 255)->nullable();
+            $table->string('jbt_organisasi', 255)->nullable();
+            $table->integer('periode')->nullable();
+            $table->string('unggah_sk', 255)->nullable();
+            $table->integer('status')->default(0);
+            $table->timestamp('modified')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
@@ -22,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dataorganisasis');
+        Schema::dropIfExists('dataorganisasi');
     }
 };
