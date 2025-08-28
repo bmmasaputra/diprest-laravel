@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
             $request->session()->regenerate();
 
             // Redirect to user dashboard after login
-            return redirect()->intended(route('admin.dashboard'));
+            return redirect()->intended('/admin');
         }
 
         // If authentication fails

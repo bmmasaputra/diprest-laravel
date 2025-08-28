@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\HasName;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasName
 {
     use HasFactory, Notifiable;
 
@@ -39,4 +40,10 @@ class User extends Authenticatable
         'status'   => 'boolean',
         'modified' => 'datetime',
     ];
+
+    public function getFilamentName(): string
+    {
+        // Always return a non-empty string
+        return $this->username ?: ('User ' . $this->getKey());
+    }
 }
