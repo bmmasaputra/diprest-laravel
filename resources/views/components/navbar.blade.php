@@ -1,4 +1,4 @@
-<header class="absolute inset-x-0 top-0 z-50">
+<header class="absolute inset-x-0 top-0 z-50 {{$background}}">
     <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
         <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5 flex items-center gap-x-3">
@@ -15,8 +15,8 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="/" class="text-base/6 font-semibold text-white">Beranda</a>
-            <a href="/statistik" class="text-base/6 font-regular text-gray-500">Statistik</a>
+            <a href="/" class="text-base/6 font-semibold {{ request()->is('/') ? 'text-white' : 'text-gray-500' }}">Beranda</a>
+            <a href="/statistik" class="text-base/6 font-semibold {{ request()->is('statistik') ? 'text-white' : 'text-gray-500' }}">Statistik</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
