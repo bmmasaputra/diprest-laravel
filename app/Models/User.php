@@ -33,7 +33,6 @@ class User extends Authenticatable implements HasName
 
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     protected $casts = [
