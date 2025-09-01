@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <x-Navbar title="Statistik UPR"></x-Navbar>
+    <x-Navbar title="DiPrest UPR"></x-Navbar>
     <div class="relative isolate overflow-hidden bg-gray-900 min-h-screen flex items-center py-24 sm:py-32">
         <!-- <img src="image/rektorat.png" alt="" class="absolute inset-0 -z-10 size-full object-cover object-right md:object-center" /> -->
         <div aria-hidden="true" class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl">

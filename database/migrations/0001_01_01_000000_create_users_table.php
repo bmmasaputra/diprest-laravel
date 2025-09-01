@@ -11,29 +11,36 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+        Schema::create('user', function (Blueprint $table) {
+            $table->string('id_user', 255)->primary();
+            $table->string('username', 25);
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('nama', 50);
+            $table->string('level', 25);
+            $table->string('fakultas', 255)->nullable();
+            $table->string('program_studi', 255)->nullable();
+            $table->string('foto', 255)->nullable();
+            $table->boolean('status')->default(0);
+            $table->timestamp('modified')->nullable()->useCurrentOnUpdate();
         });
 
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
-        });
-
+        // Custom session table
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
+            $table->string('user_id', 255)->nullable()->index();
+            $table->string('username', 25)->nullable();
+            $table->string('level', 25)->nullable();
+            $table->string('fakultas', 255)->nullable();
+            $table->string('program_studi', 255)->nullable();
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
+
+            $table->foreign('user_id')
+                ->references('id_user')
+                ->on('user')   // ✅ singular
+                ->onDelete('cascade');
         });
     }
 
@@ -42,8 +49,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('user');
         Schema::dropIfExists('sessions');
     }
 };
