@@ -37,65 +37,65 @@
                         @if(isset($card['image']))
                         <img class="object-cover w-full rounded-t-lg h-24 md:h-28 xl:h-32 md:rounded-none md:rounded-t-lg" src="{{ asset($card['image']) }}" alt="">
                         @elseif(isset($card['icon']) && $card['icon'] === 'trophy')
-                        <svg class="w-14 h-14 text-gray-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 dark:text-gray-400 text-gray-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8 21h8m-4-4v4m0-4a7 7 0 01-7-7V5a2 2 0 012-2h10a2 2 0 012 2v5a7 7 0 01-7 7z" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'organisasi')
-                        <svg class="w-14 h-14 text-gray-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-gray-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17 20v-2a4 4 0 00-3-3.87M7 20v-2a4 4 0 013-3.87M12 14v6" />
                             <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none" />
                             <circle cx="5" cy="11" r="3" stroke="currentColor" stroke-width="2" fill="none" />
                             <circle cx="19" cy="11" r="3" stroke="currentColor" stroke-width="2" fill="none" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'book')
-                        <svg class="w-14 h-14 text-gray-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-gray-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m0-12c-4.418 0-8 1.79-8 4v10c0 2.21 3.582 4 8 4s8-1.79 8-4V10c0-2.21-3.582-4-8-4z" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'magang')
-                        <svg class="w-14 h-14 text-gray-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-gray-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M3 7h18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zm0 0V5a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v2" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'mengajar')
-                        <svg class="w-14 h-14 text-grey-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-grey-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0a9 9 0 01-9-9" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'penelitian')
-                        <svg class="w-14 h-14 text-grey-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-grey-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h10M7 11h10M7 15h6M5 5v14a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2z" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'proyek-kemanusiaan')
-                        <svg class="w-14 h-14 text-grey-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-grey-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M7 11V5a2 2 0 1 1 4 0v6m0 0V3a2 2 0 1 1 4 0v8m0 0V7a2 2 0 1 1 4 0v8a7 7 0 1 1-14 0v-3a2 2 0 1 1 4 0z" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'proyek-desa')
-                        <svg class="w-14 h-14 text-grey-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-grey-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 21V9.243a2 2 0 01.879-1.657l7-4.667a2 2 0 012.242 0l7 4.667A2 2 0 0121 9.243V21M9 21V12h6v9" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'wirausaha')
-                        <svg class="w-14 h-14 text-gray-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-gray-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2M8 17V9m4 8V5m4 12v-3" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'studi-proyek-independen')
-                        <svg class="w-14 h-14 text-gray-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-gray-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0a9 9 0 01-9-9" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'pengabdian')
-                        <svg class="w-14 h-14 text-gray-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-gray-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17 20v-2a4 4 0 00-3-3.87M7 20v-2a4 4 0 013-3.87M12 14v6" />
                             <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none" />
                             <circle cx="5" cy="11" r="3" stroke="currentColor" stroke-width="2" fill="none" />
                             <circle cx="19" cy="11" r="3" stroke="currentColor" stroke-width="2" fill="none" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'rekognisi')
-                        <svg class="w-14 h-14 text-gray-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-gray-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'pembinaan-mental-kebangsaan')
-                        <svg class="w-14 h-14 text-grey-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-gray-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v16m0-16h13l-2 5 2 5H4" />
                         </svg>
                         @elseif(isset($card['icon']) && $card['icon'] === 'sertifikasi')
-                        <svg class="w-14 h-14 text-gray-900 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-14 h-14 text-gray-900 dark:text-gray-400 mt-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="2" fill="none" />
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 17v4m0 0l2-2m-2 2l-2-2" />
                         </svg>
@@ -110,7 +110,7 @@
             </div>
         </div>
     </div>
-    <footer class="bg-slate-800 shadow-sm dark:bg-gray-900">
+    <footer class="bg-slate-800 shadow-sm">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
                 <!-- Logo UPR kiri -->
