@@ -12,10 +12,12 @@ class Navbar extends Component
      * Create a new component instance.
      */
     public $title;
-    
-    public function __construct($title)
+    public $background;
+
+    public function __construct($title, $background = 'bg-none')
     {
         $this->title = $title;
+        $this->background = $background;
     }
 
     /**
