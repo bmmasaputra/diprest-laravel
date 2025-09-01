@@ -15,11 +15,11 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="/" class="text-base/6 font-semibold {{ request()->is('/') ? 'text-white' : 'text-gray-500' }}">Beranda</a>
-            <a href="/statistik" class="text-base/6 font-semibold {{ request()->is('statistik') ? 'text-white' : 'text-gray-500' }}">Statistik</a>
+            <a href="/" class="{{request()->is('/') ? 'text-base/6 font-semibold text-white' : ' text-base/6 font-regular text-gray-500'}}">Beranda</a>
+            <a href="/statistik" class="{{request()->is('statistik') ? 'text-base/6 font-semibold text-white' : ' text-base/6 font-regular text-gray-500'}}">Statistik</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+            <a href="/admin" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
         </div>
     </nav>
     <el-dialog>
@@ -41,11 +41,11 @@
                     <div class="mt-6 flow-root">
                         <div class="-my-6 divide-y divide-white/10">
                             <div class="space-y-2 py-6">
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Beranda</a>
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-regular text-gray-500 hover:bg-white/5">Statistik</a>
+                                <a href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 {{request()->is('/') ? 'font-semibold text-white hover:bg-white/5' : 'text-gray-500 hover:bg-white/5' }}">Beranda</a>
+                                <a href="/statistik" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 {{request()->is('statistik') ? 'font-semibold text-white hover:bg-white/5' : 'text-gray-500 hover:bg-white/5' }}">Statistik</a>
                             </div>
                             <div class="py-6">
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5">Log in</a>
+                                <a href="/admin" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5">Log in</a>
                             </div>
                         </div>
                     </div>
