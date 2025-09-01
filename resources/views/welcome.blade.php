@@ -64,7 +64,83 @@
             </div>
         </div>
     </div>
+    <div class="relative isolate overflow-hidden bg-gray-900 min-h-screen flex items-center py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 w-full">
+            <div class="mx-auto max-w-2xl lg:mx-0">
+                <!-- Judul agak atas dengan jarak lebih longgar -->
+                <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl mb-25">
+                    Visi dan Misi UPR
+                </h2>
+            </div>
 
+            <!-- Deskripsi di tengah -->
+            <div class="mx-auto max-w-3xl text-center">
+                <p class="mt-8 text-lg font-medium text-gray-300 text-justify leading-relaxed">
+                    Visi Universitas Palangka Raya adalah menjadi universitas yang unggul dan berdaya saing dalam pengembangan
+                    ilmu pengetahuan, teknologi, seni, dan budaya berbasis sumber daya alam dan lingkungan tropis lembab
+                    Kalimantan untuk kesejahteraan masyarakat.
+                </p>
+                <p class="mt-6 text-lg font-medium text-gray-300 text-justify leading-relaxed">
+                    Misi Universitas Palangka Raya meliputi: menyelenggarakan pendidikan tinggi yang bermutu untuk menghasilkan
+                    lulusan yang kompeten dan berintegritas; mengembangkan penelitian inovatif yang bermanfaat bagi pengembangan
+                    ilmu pengetahuan dan pemecahan masalah masyarakat; serta melaksanakan pengabdian kepada masyarakat dalam rangka
+                    pemberdayaan dan peningkatan kesejahteraan sosial-ekonomi.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-slate-800 shadow-sm dark:bg-gray-900">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <!-- Logo UPR kiri -->
+                <div class="mb-4 md:mb-0 md:w-1/3 flex items-center">
+                    <img src="{{ asset('image/logo.png') }}" alt="Logo UPR" class="h-10 w-auto">
+                    <h1 class="ml-2 text-2xl font-bold text-white">DiPrest UPR</h1>
+                </div>
+                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Beranda</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/statistik') }}" class="hover:underline me-4 md:me-6">Statistik</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <!-- Copyright tengah -->
+                <div class="mb-4 md:mb-0 md:w-1/3 flex justify-start">
+                    <span class="block text-sm text-gray-400 text-center font-semibold">© 2025 Copyright. Digitalisasi Informasi UPR.</span>
+                </div>
+                <!-- Sosmed kanan -->
+                <div class="md:w-1/3 flex justify-end space-x-5">
+                    <a href="#" class="text-gray-500 hover:text-white dark:hover:text-white">
+                        <!-- Facebook icon -->
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                            <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">Facebook page</span>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-white dark:hover:text-white">
+                        <!-- Instagram icon -->
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect width="18" height="18" x="3" y="3" rx="5" stroke="currentColor" />
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" />
+                            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                        </svg>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-white dark:hover:text-white">
+                        <!-- YouTube icon -->
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M21.8 8.001a2.75 2.75 0 0 0-1.93-1.946C18.14 6 12 6 12 6s-6.14 0-7.87.055A2.75 2.75 0 0 0 2.2 8.001 28.6 28.6 0 0 0 2 12a28.6 28.6 0 0 0 .2 3.999 2.75 2.75 0 0 0 1.93 1.946C5.86 18 12 18 12 18s6.14 0 7.87-.055a2.75 2.75 0 0 0 1.93-1.946A28.6 28.6 0 0 0 22 12a28.6 28.6 0 0 0-.2-3.999zM10 15.5v-7l6 3.5-6 3.5z" />
+                        </svg>
+                        <span class="sr-only">YouTube</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
