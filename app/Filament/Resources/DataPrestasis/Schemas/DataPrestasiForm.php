@@ -41,10 +41,10 @@ class DataPrestasiForm
                 select::make('tingkat_kegiatan')
                     ->label('Tingkat Kegiatan')
                     ->options([
-                        'TINGKAT INTERNASIONAL' => 'TINGKAT INTERNASIONAL',
-                        'TINGKAT NASIONAL'      => 'TINGKAT NASIONAL',
-                        'TINGKAT PROVINSI'      => 'TINGKAT PROVINSI',
-                        'TINGKAT KABUPATEN'     => 'TINGKAT KABUPATEN',
+                        'INTERNASIONAL' => 'Tingkat Internasional',
+                        'NASIONAL'      => 'Tingkat Nasional',
+                        'PROVINSI'      => 'Tingkat Provinsi',
+                        'KABUPATEN'     => 'Tingkat Kabupaten',
                     ])
                     ->required(),
                 TextInput::make('jumlah_asal_peserta')
