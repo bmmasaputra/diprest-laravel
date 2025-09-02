@@ -23,8 +23,8 @@ return new class extends Migration
             $table->integer('jumlah_peserta')->default(0);
             $table->string('tempat_kegiatan', 255)->nullable();
             $table->string('capaian_prestasi', 255)->nullable();
-            $table->string('tanggal_kegiatan_a', 10)->nullable();
-            $table->string('tanggal_kegiatan_e', 10)->nullable();
+            $table->string('tanggal_kegiatan_a', 255)->nullable();
+            $table->string('tanggal_kegiatan_e', 255)->nullable();
             $table->string('unggah_sertifikat', 255)->nullable();
             $table->string('unggah_surat_tugas', 255)->nullable();
             $table->string('unggah_foto', 255)->nullable();

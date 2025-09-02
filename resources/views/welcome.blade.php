@@ -64,32 +64,46 @@
             </div>
         </div>
     </div>
-    <div class="relative isolate overflow-hidden bg-gray-900 min-h-screen flex items-center py-24 sm:py-32">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8 w-full">
-            <div class="mx-auto max-w-2xl lg:mx-0">
-                <!-- Judul agak atas dengan jarak lebih longgar -->
-                <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl mb-25">
-                    Visi dan Misi UPR
-                </h2>
-            </div>
 
-            <!-- Deskripsi di tengah -->
-            <div class="mx-auto max-w-3xl text-center">
-                <p class="mt-8 text-lg font-medium text-gray-300 text-justify leading-relaxed">
-                    Visi Universitas Palangka Raya adalah menjadi universitas yang unggul dan berdaya saing dalam pengembangan
-                    ilmu pengetahuan, teknologi, seni, dan budaya berbasis sumber daya alam dan lingkungan tropis lembab
-                    Kalimantan untuk kesejahteraan masyarakat.
-                </p>
-                <p class="mt-6 text-lg font-medium text-gray-300 text-justify leading-relaxed">
-                    Misi Universitas Palangka Raya meliputi: menyelenggarakan pendidikan tinggi yang bermutu untuk menghasilkan
-                    lulusan yang kompeten dan berintegritas; mengembangkan penelitian inovatif yang bermanfaat bagi pengembangan
-                    ilmu pengetahuan dan pemecahan masalah masyarakat; serta melaksanakan pengabdian kepada masyarakat dalam rangka
-                    pemberdayaan dan peningkatan kesejahteraan sosial-ekonomi.
-                </p>
+    <section class="bg-slate-800 py-16">
+        <div id="visimisi-carousel" class="relative w-full" data-carousel="slide">
+            <!-- Carousel wrapper -->
+            <div class="relative h-80 md:h-110 overflow-hidden bg-none flex items-center justify-center">
+                <!-- Visi -->
+                <div class="hidden duration-[2000ms] ease-in-out text-center" data-carousel-item="active">
+                    <h2 class="text-2xl md:text-4xl font-bold text-white mb-8">Visi</h2>
+                    <p class="text-gray-100 max-w-3xl mx-auto text-lg italic md:text-xl leading-relaxed">
+                        Menjadi perguruan tinggi terbaik dalam menghasilkan data manusia (SDM) yang berkualitas, bermoral pancasila dan berdaya saing tinggi.
+                    </p>
+                </div>
+                <!-- Misi -->
+                <div class="hidden duration-[2000ms] ease-in-out text-center" data-carousel-item>
+                    <h2 class="text-2xl md:text-4xl font-bold text-white mb-8">Misi</h2>
+                    <ol class="text-gray-100 max-w-3xl mx-auto text-lg sm:text-base md:text-xl leading-relaxed list-none italic text-center">
+                        <li class="mb-5">1. Menyelenggarakan pendidikan dan pengajaran secara efektif dan profesional.</li>
+                        <li class="mb-5">2. Menyelenggarakan penelitian dan pengabdian kepada masyarakat untuk kemajuan ilmu pengetahuan dan teknologi serta
+                            kesejahteraan masyarakat.</li>
+                        <li class="mb-5">3. Membina kehidupan akademik yang demokratis dan dinamis dengan mendayagunakan sumberdaya secara optimal,
+                            transparan, akuntabel, dan meningkatkan kualitas sumberdaya manusia berkelanjutan.
+                        </li>
+                        <li class="mb-5">4. Menyelenggarakan pengelolaan universitas berdasarkan paradigma baru manajemen pendidikan tinggi yang berazas
+                            otonomi, evaluasi, akuntabilitas, akreditasi, dan jaminan mutu yang bermuara pada peningkatan kualitas yang
+                            berkelanjutan.</li>
+                    </ol>
+                </div>
             </div>
         </div>
-    </div>
-    <footer class="bg-slate-800 shadow-sm dark:bg-gray-800">
+    </section>
+    <!-- Script Flowbite (harus ada supaya carousel jalan) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+    <footer class="bg-gray-900 shadow-sm dark:bg-gray-900 relative isolate overflow-hidden">
+        <div aria-hidden="true" class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl">
+            <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="aspect-1097/845 w-274.25 bg-linear-to-tr from-[#ff4694] to-[#776fff] opacity-20"></div>
+        </div>
+        <div aria-hidden="true" class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:-top-112 sm:ml-16 sm:translate-x-0">
+            <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="aspect-1097/845 w-274.25 bg-linear-to-tr from-[#ff4694] to-[#776fff] opacity-20"></div>
+        </div>
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
                 <!-- Logo UPR kiri -->

@@ -98,6 +98,7 @@ class DataPrestasiForm
                     ->disk('public')
                     ->directory('sk_foto')
                     ->acceptedFileTypes([
+                        'image/jpg',
                         'image/jpeg',
                         'image/png',
                         'image/gif',
