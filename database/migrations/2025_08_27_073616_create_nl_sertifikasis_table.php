@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nl_sertifikasis', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->integer('id')->primary();
+            $table->string('nim', 20);
+            $table->string('nama_skema_kegiatan', 255);
+            $table->string('tingkat_kegiatan', 255);
+            $table->integer('tahun_kegiatan');
+            $table->string('dosen_pendamping', 255)->nullable();
+            $table->string('file_sertifikat', 255)->nullable();
+            $table->timestamp('modified')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
