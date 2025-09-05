@@ -3,11 +3,11 @@
         <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5 flex items-center gap-x-3">
                 <img src="image/logo.png" alt="" class="h-10 w-auto" />
-                <span class="text-white text-lg font-semibold">{{$title}}</span>
+                <span class="text-black2 text-lg font-semibold">{{$title}}</span>
             </a>
         </div>
         <div class="flex lg:hidden">
-            <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200">
+            <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-black">
                 <span class="sr-only">Open main menu</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
                     <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -15,11 +15,11 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="/" class="{{request()->is('/') ? 'text-base/6 font-semibold text-white' : ' text-base/6 font-regular text-gray-500'}}">Beranda</a>
-            <a href="/statistik" class="{{request()->is('statistik') ? 'text-base/6 font-semibold text-white' : ' text-base/6 font-regular text-gray-500'}}">Statistik</a>
+            <a href="/" class="{{request()->is('/') ? 'text-base/6 font-semibold text-black2' : ' text-base/6 font-regular text-gray-500'}}">Beranda</a>
+            <a href="/statistik" class="{{request()->is('statistik') ? 'text-base/6 font-semibold text-black2' : ' text-base/6 font-regular text-gray-500'}}">Statistik</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="/admin" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+            <a href="/admin" class="text-sm/6 font-semibold text-black2">Log in <span aria-hidden="true">&rarr;</span></a>
         </div>
     </nav>
     <el-dialog>
@@ -31,7 +31,7 @@
                             <span class="sr-only">Your Company</span>
                             <img src="image/logo.png" alt="" class="h-10 w-auto" />
                         </a>
-                        <button type="button" command="close" commandfor="mobile-menu" class="-m-2.5 rounded-md p-2.5 text-gray-200">
+                        <button type="button" command="close" commandfor="mobile-menu" class="-m-2.5 rounded-md p-2.5 text-white">
                             <span class="sr-only">Close menu</span>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
                                 <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
@@ -41,8 +41,8 @@
                     <div class="mt-6 flow-root">
                         <div class="-my-6 divide-y divide-white/10">
                             <div class="space-y-2 py-6">
-                                <a href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 {{request()->is('/') ? 'font-semibold text-white hover:bg-white/5' : 'text-gray-500 hover:bg-white/5' }}">Beranda</a>
-                                <a href="/statistik" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 {{request()->is('statistik') ? 'font-semibold text-white hover:bg-white/5' : 'text-gray-500 hover:bg-white/5' }}">Statistik</a>
+                                <a href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 {{request()->is('/') ? 'font-semibold text-white hover:bg-white/8' : 'text-gray-500 hover:bg-white/5' }}">Beranda</a>
+                                <a href="/statistik" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 {{request()->is('statistik') ? 'font-semibold text-white hover:bg-white/8' : 'text-gray-500 hover:bg-white/5' }}">Statistik</a>
                             </div>
                             <div class="py-6">
                                 <a href="/admin" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5">Log in</a>

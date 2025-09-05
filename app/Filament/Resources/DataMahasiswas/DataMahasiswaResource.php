@@ -20,7 +20,7 @@ class DataMahasiswaResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'nama';
+    protected static ?string $recordTitleAttribute = 'nama_organisasi';
 
     public static function form(Schema $schema): Schema
     {
