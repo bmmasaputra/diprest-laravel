@@ -15,8 +15,7 @@
 
 <body class="h-full">
     <div class="flex min-h-screen">
-        <!-- Left: Login Form -->
-        <div class="flex flex-col justify-center flex-1 bg-white px-8 py-12 sm:px-16 lg:px-8 xl:px-12">
+        <div class="flex flex-col justify-center flex-1 bg-white px-8 py-12">
             <div class="mx-auto w-full max-w-sm">
                 <img src="{{ asset('image/logo.png') }}" alt="Universitas Palangka Raya" class="mx-auto h-20 w-auto mb-4" />
                 <h2 class="text-center text-2xl font-bold tracking-tight text-gray-900 mb-8">Log In as Admin</h2>
@@ -51,10 +50,6 @@
                     <a href="/" class="font-semibold text-green-600 hover:text-green-500">Kembali ke beranda</a>
                 </p>
             </div>
-        </div>
-        <!-- Right: Image -->
-        <div class="hidden lg:flex xl:flex-3 lg:flex-2 items-center justify-center bg-green-50">
-            <img src="image/hero.jpg" alt="Rektorat Universitas Palangka Raya" class="object-cover w-full h-full max-h-screen" />
         </div>
     </div>
 </body>
