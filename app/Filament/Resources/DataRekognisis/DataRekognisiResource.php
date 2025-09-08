@@ -14,6 +14,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 use UnitEnum;
 
 class DataRekognisiResource extends Resource
@@ -52,5 +53,56 @@ class DataRekognisiResource extends Resource
             'create' => CreateDataRekognisi::route('/create'),
             'edit' => EditDataRekognisi::route('/{record}/edit'),
         ];
+    }
+
+    public static function canViewAny(): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canCreate(): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canEdit($record): bool
+    {
+        return Auth::user()?->level === 'admin';
+    }
+
+    public static function canDelete($record): bool
+    {
+        return Auth::user()?->level === 'admin';
+    }
+
+    public static function canForceDelete($record): bool
+    {
+        return Auth::user()?->level === 'admin';
+    }
+
+    public static function canRestore($record): bool
+    {
+        return Auth::user()?->level === 'admin';
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        $user = Auth::user();
+
+        if (! $user) {
+            return false;
+        }
+
+        // Kalau panel mahasiswa
+        if (filament()->getCurrentPanel()->getId() === 'mahasiswaPanel') {
+            return $user->level === 'mahasiswa';
+        }
+
+        // Kalau panel admin
+        if (filament()->getCurrentPanel()->getId() === 'admin') {
+            return $user->level === 'admin';
+        }
+
+        return false;
     }
 }
