@@ -22,7 +22,7 @@ class DataProyekResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'MBKM';
 
-    protected static ?string $label = 'Data Proyek';
+    protected static ?string $label = 'Data Proyek Kemanusiaan';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
