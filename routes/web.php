@@ -93,3 +93,73 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 
 // Auth scaffolding default user (jika kamu tetap butuh register dll untuk guard web)
 require __DIR__ . '/auth.php';
+
+// Data Prestasi Routes
+use App\Http\Controllers\DataPrestasiController;
+
+Route::get('/data-prestasi', [DataPrestasiController::class, 'index'])->name('dataprestasi.index');
+
+// data organisasi routes
+use App\Http\Controllers\DataOrganisasiController;
+
+Route::get('/data-organisasi', [DataOrganisasiController::class, 'index'])->name('dataorganisasi.index');
+
+// data pertukaran mahasiswa routes
+use App\Http\Controllers\DataPertukaranController;
+
+Route::get('/data-pertukaran-mahasiswa', [DataPertukaranController::class, 'index'])->name('datapertukaran.index');
+
+// data magang routes
+use App\Http\Controllers\DataMagangController;
+
+Route::get('/data-magang', [DataMagangController::class, 'index'])->name('datamagang.index');
+
+// data mengajar routes
+use App\Http\Controllers\DataMengajarController;
+
+Route::get('/data-mengajar', [DataMengajarController::class, 'index'])->name('datamengajar.index');
+
+// data penelitian routes
+use App\Http\Controllers\DataPenelitianController;
+
+Route::get('/data-penelitian', [DataPenelitianController::class, 'index'])->name('datapenelitian.index');
+
+// data proyek kemanusiaan routes
+use App\Http\Controllers\DataKemanusiaanController;
+
+Route::get('/data-proyek-kemanusiaan', [DataKemanusiaanController::class, 'index'])->name('datakemanusiaan.index');
+
+// data proyek desa routes
+use App\Http\Controllers\DataProyekDesaController;
+
+Route::get('/data-proyek', [DataProyekDesaController::class, 'index'])->name('datadesa.index');
+
+// data wirausaha routes
+use App\Http\Controllers\DataWirausahaController;
+
+Route::get('/data-wirausaha', [DataWirausahaController::class, 'index'])->name('datawirausaha.index');
+
+// data studi proyek independen routes
+use App\Http\Controllers\DataIndependenController;
+
+Route::get('/data-studi-proyek-independen', [DataIndependenController::class, 'index'])->name('dataindependen.index');
+
+// data pengabdian routes
+use App\Http\Controllers\DataPengabdianController;
+
+Route::get('/data-pengabdian', [DataPengabdianController::class, 'index'])->name('datapengabdian.index');
+
+// data rekognisi routes
+use App\Http\Controllers\DataRekognisiController;
+
+Route::get('/data-rekognisi', [DataRekognisiController::class, 'index'])->name('datarekognisi.index');
+
+// data pembinaan mental kebangsaan routes
+use App\Http\Controllers\DataPembinaanController;
+
+Route::get('/data-pembinaan-mental-kebangsaan', [DataPembinaanController::class, 'index'])->name('datapembinaan.index');
+
+// data sertifikasi routes
+use App\Http\Controllers\DataSertifikasiController;
+
+Route::get('/data-sertifikasi', [DataSertifikasiController::class, 'index'])->name('datasertifikasi.index');
