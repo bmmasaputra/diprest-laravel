@@ -26,10 +26,10 @@ class DataMengajarForm
                     )
                     ->required(),
                 Hidden::make('jenis')
-                    ->default('data_mengajar')
+                    ->default('mengajar')
                     ->required(),
                 TextInput::make('nama_program')
-                    ->label('Program Mengajar')
+                    ->label('Nama Program')
                     ->required(),
                 Select::make('level')
                     ->label('Level')

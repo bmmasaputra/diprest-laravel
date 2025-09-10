@@ -26,7 +26,7 @@ class DataProyekIndependenForm
                     )
                     ->required(),
                 Hidden::make('jenis')
-                    ->default('data_mengajar')
+                    ->default('studi_pi')
                     ->required(),
                 TextInput::make('nama_program')
                     ->label('Program Proyek Independen')

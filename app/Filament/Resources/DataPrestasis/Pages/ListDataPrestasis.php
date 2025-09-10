@@ -5,6 +5,7 @@ namespace App\Filament\Resources\DataPrestasis\Pages;
 use App\Filament\Resources\DataPrestasis\DataPrestasiResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Support\Facades\Auth;
 
 class ListDataPrestasis extends ListRecords
 {
@@ -12,8 +13,13 @@ class ListDataPrestasis extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        // Hanya admin yang bisa create
+        if (Auth::user()?->level === 'admin') {
+            return [
+                CreateAction::make(),
+            ];
+        }
+
+        return [];
     }
 }

@@ -5,6 +5,7 @@ namespace App\Filament\Resources\PertukaranMahasiswas\Pages;
 use App\Filament\Resources\PertukaranMahasiswas\PertukaranMahasiswaResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Support\Facades\Auth;
 
 class ListPertukaranMahasiswas extends ListRecords
 {
@@ -12,8 +13,12 @@ class ListPertukaranMahasiswas extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        if (Auth::user()?->level === 'admin') {
+            return [
+                CreateAction::make(),
+            ];
+        }
+
+        return [];
     }
 }

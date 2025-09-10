@@ -26,7 +26,7 @@ class DataPenelitianForm
                     )
                     ->required(),
                 Hidden::make('jenis')
-                    ->default('data_penelitian')
+                    ->default('penelitian')
                     ->required(),
                 TextInput::make('nama_program')
                     ->label('Program Penelitian')

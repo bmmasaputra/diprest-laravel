@@ -5,6 +5,7 @@ namespace App\Filament\Resources\DataOrganisasis\Pages;
 use App\Filament\Resources\DataOrganisasis\DataOrganisasiResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Support\Facades\Auth;
 
 class ListDataOrganisasis extends ListRecords
 {
@@ -12,8 +13,13 @@ class ListDataOrganisasis extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        // Hanya admin yang bisa create
+        if (Auth::user()?->level === 'admin') {
+            return [
+                CreateAction::make(),
+            ];
+        }
+
+        return [];
     }
 }

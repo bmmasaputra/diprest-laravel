@@ -5,6 +5,7 @@ namespace App\Filament\Resources\DataPembinaans\Pages;
 use App\Filament\Resources\DataPembinaans\DataPembinaanResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Support\Facades\Auth;
 
 class ListDataPembinaans extends ListRecords
 {
@@ -12,8 +13,12 @@ class ListDataPembinaans extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        if (Auth::user()?->level === 'admin') {
+            return [
+                CreateAction::make(),
+            ];
+        }
+
+        return [];
     }
 }

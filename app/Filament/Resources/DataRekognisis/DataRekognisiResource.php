@@ -57,7 +57,7 @@ class DataRekognisiResource extends Resource
 
     public static function canViewAny(): bool
     {
-        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa', 'operator']);
     }
 
     public static function canCreate(): bool
@@ -83,26 +83,5 @@ class DataRekognisiResource extends Resource
     public static function canRestore($record): bool
     {
         return Auth::user()?->level === 'admin';
-    }
-
-    public static function shouldRegisterNavigation(): bool
-    {
-        $user = Auth::user();
-
-        if (! $user) {
-            return false;
-        }
-
-        // Kalau panel mahasiswa
-        if (filament()->getCurrentPanel()->getId() === 'mahasiswaPanel') {
-            return $user->level === 'mahasiswa';
-        }
-
-        // Kalau panel admin
-        if (filament()->getCurrentPanel()->getId() === 'admin') {
-            return $user->level === 'admin';
-        }
-
-        return false;
     }
 }

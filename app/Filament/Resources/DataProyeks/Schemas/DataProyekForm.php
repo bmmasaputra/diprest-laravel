@@ -26,7 +26,7 @@ class DataProyekForm
                     )
                     ->required(),
                 Hidden::make('jenis')
-                    ->default('data_mengajar')
+                    ->default('proyek_kemanusiaan')
                     ->required(),
                 TextInput::make('nama_program')
                     ->label('Program Proyek Kemanusiaan')

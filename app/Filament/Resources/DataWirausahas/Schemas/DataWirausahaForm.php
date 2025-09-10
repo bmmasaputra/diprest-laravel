@@ -26,7 +26,7 @@ class DataWirausahaForm
                     )
                     ->required(),
                 Hidden::make('jenis')
-                    ->default('data_mengajar')
+                    ->default('wirausaha')
                     ->required(),
                 TextInput::make('nama_program')
                     ->label('Program Wirausaha')

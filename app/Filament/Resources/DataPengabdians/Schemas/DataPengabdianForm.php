@@ -26,7 +26,7 @@ class DataPengabdianForm
                     )
                     ->required(),
                 Hidden::make('jenis')
-                    ->default('data_mengajar')
+                    ->default('pengabdian')
                     ->required(),
                 TextInput::make('nama_program')
                     ->label('Program Pengabdian')

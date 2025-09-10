@@ -5,6 +5,7 @@ namespace App\Filament\Resources\DataProyekIndependens\Pages;
 use App\Filament\Resources\DataProyekIndependens\DataProyekIndependenResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Support\Facades\Auth;
 
 class ListDataProyekIndependens extends ListRecords
 {
@@ -12,8 +13,12 @@ class ListDataProyekIndependens extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        if (Auth::user()?->level === 'admin') {
+            return [
+                CreateAction::make(),
+            ];
+        }
+
+        return [];
     }
 }

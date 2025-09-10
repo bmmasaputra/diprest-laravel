@@ -5,6 +5,7 @@ namespace App\Filament\Resources\DataMagangs\Pages;
 use App\Filament\Resources\DataMagangs\DataMagangResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Support\Facades\Auth;
 
 class ListDataMagangs extends ListRecords
 {
@@ -12,8 +13,12 @@ class ListDataMagangs extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        if (Auth::user()?->level === 'admin') {
+            return [
+                CreateAction::make(),
+            ];
+        }
+
+        return [];
     }
 }

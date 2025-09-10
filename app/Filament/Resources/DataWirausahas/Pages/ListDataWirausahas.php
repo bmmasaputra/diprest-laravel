@@ -5,6 +5,7 @@ namespace App\Filament\Resources\DataWirausahas\Pages;
 use App\Filament\Resources\DataWirausahas\DataWirausahaResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Support\Facades\Auth;
 
 class ListDataWirausahas extends ListRecords
 {
@@ -12,8 +13,12 @@ class ListDataWirausahas extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        if (Auth::user()?->level === 'admin') {
+            return [
+                CreateAction::make(),
+            ];
+        }
+
+        return [];
     }
 }

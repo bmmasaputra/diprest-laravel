@@ -39,6 +39,7 @@ class AuthenticatedSessionController extends Controller
             return match ($user->level) {
                 'admin' => redirect()->to('/admin'),
                 'mahasiswa'  => redirect()->to('/mahasiswaPanel'),
+                'operator'   => redirect()->to('/operator'),
                 default      => redirect()->to('/'),
             };
         }
