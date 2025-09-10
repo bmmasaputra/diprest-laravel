@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Mbkm;
+use Illuminate\Http\Request;
+
+class DataIndependenController extends Controller
+{
+    public function index(Request $request)
+    {
+        $query = Mbkm::where('jenis', 'studi_pi');
+
+        // Filter pencarian
+        if ($request->has('search') && $request->search != '') {
+            $query->where(function ($q) use ($request) {
+                $q->where('jenis', 'like', '%' . $request->search . '%')
+                    ->orWhere('nama_program', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        // Pagination (10 per halaman)
+        $dataindependen = $query->paginate(10)->appends(['search' => $request->search]);
+
+        return view('data-studi-proyek-independen', compact('dataindependen'));
+    }
+}
