@@ -61,12 +61,12 @@ class DataPrestasiResource extends Resource
 
     public static function canEdit($record): bool
     {
-        return Auth::user()?->level === 'admin';
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
     }
 
     public static function canDelete($record): bool
     {
-        return Auth::user()?->level === 'admin';
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
     }
 
     public static function canForceDelete($record): bool

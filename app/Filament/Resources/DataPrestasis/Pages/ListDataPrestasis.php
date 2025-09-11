@@ -14,7 +14,7 @@ class ListDataPrestasis extends ListRecords
     protected function getHeaderActions(): array
     {
         // Hanya admin yang bisa create
-        if (Auth::user()?->level === 'admin') {
+        if (Auth::user()?->level === 'admin' || Auth::user()?->level === 'mahasiswa') {
             return [
                 CreateAction::make(),
             ];
