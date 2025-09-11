@@ -57,17 +57,21 @@
                 <table class="w-full border-collapse border border-gray-300">
                     <thead class="bg-gray-100">
                         <tr>
-                            <th class="border px-4 py-2">NIM</th>
+                            <th class="border px-4 py-2">Nama</th>
+                            <th class="border px-4 py-2">Fakultas</th>
+                            <th class="border px-4 py-2">Program Studi</th>
                             <th class="border px-4 py-2">Tingkat Organisasi</th>
                             <th class="border px-4 py-2">Nama Organisasi</th>
                             <th class="border px-4 py-2">Jabatan</th>
-                            <th class="border px-4 py-2">Periode</th>
+                            <th class="border px-4 py-2">Tahun Kegiatan</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse($dataorganisasi as $item)
                         <tr>
-                            <td class="border px-4 py-2">{{ $item->nim }}</td>
+                            <td class="border px-4 py-2">{{ $item->nama }}</td>
+                            <td class="border px-4 py-2">{{ $item->fakultas }}</td>
+                            <td class="border px-4 py-2">{{ $item->program_studi }}</td>
                             <td class="border px-4 py-2">{{ $item->tingkat_organisasi }}</td>
                             <td class="border px-4 py-2">{{ $item->nama_organisasi }}</td>
                             <td class="border px-4 py-2">{{ $item->jbt_organisasi }}</td>

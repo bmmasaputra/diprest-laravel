@@ -56,21 +56,29 @@
                 <table class="w-full border-collapse border border-gray-300">
                     <thead class="bg-gray-100">
                         <tr>
-                            <th class="border px-4 py-2">NIM</th>
+                            <th class="border px-4 py-2">Nama</th>
+                            <th class="border px-4 py-2">Fakultas</th>
+                            <th class="border px-4 py-2">Prodi</th>
                             <th class="border px-4 py-2">Nama Kegiatan</th>
                             <th class="border px-4 py-2">Kategori</th>
                             <th class="border px-4 py-2">Tingkat</th>
                             <th class="border px-4 py-2">Capaian</th>
+                            <th class="border px-4 py-2">Tahun Kegiatan</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse($dataprestasi as $item)
                         <tr>
-                            <td class="border px-4 py-2">{{ $item->nim }}</td>
+                            <td class="border px-4 py-2">{{ $item->nama }}</td>
+                            <td class="border px-4 py-2">{{ $item->fakultas }}</td>
+                            <td class="border px-4 py-2">{{ $item->program_studi }}</td>
                             <td class="border px-4 py-2">{{ $item->nama_kegiatan }}</td>
                             <td class="border px-4 py-2">{{ $item->kategori_kegiatan }}</td>
                             <td class="border px-4 py-2">{{ $item->tingkat_kegiatan }}</td>
                             <td class="border px-4 py-2">{{ $item->capaian_prestasi }}</td>
+                            <td class="border px-4 py-2">
+                                {{ \Carbon\Carbon::parse($item->tanggal_kegiatan_e)->format('Y') }}
+                            </td>
                         </tr>
                         @empty
                         <tr>

@@ -42,7 +42,7 @@
                         </div>
                         <input type="text" id="table-search" value="{{ request('search') }}"
                             class="block w-full pl-10 pr-4 py-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Cari data organisasi...">
+                            placeholder="Cari data pembinaan mental kebangsaan...">
                     </div>
                 </div>
             </div>
@@ -53,7 +53,9 @@
                 <table class="w-full border-collapse border border-gray-300">
                     <thead class="bg-gray-100">
                         <tr>
-                            <th class="border px-4 py-2">NIM</th>
+                            <th class="border px-4 py-2">Nama</th>
+                            <th class="border px-4 py-2">Fakultas</th>
+                            <th class="border px-4 py-2">Program Studi</th>
                             <th class="border px-4 py-2">Kategori Kegiatan</th>
                             <th class="border px-4 py-2">Nama Kegiatan</th>
                             <th class="border px-4 py-2">Tingkat Kegiatan</th>
@@ -63,7 +65,9 @@
                     <tbody>
                         @forelse($dataPembinaan as $item)
                         <tr>
-                            <td class="border px-4 py-2">{{ $item->nim }}</td>
+                            <td class="border px-4 py-2">{{ $item->nama }}</td>
+                            <td class="border px-4 py-2">{{ $item->fakultas }}</td>
+                            <td class="border px-4 py-2">{{ $item->program_studi }}</td>
                             <td class="border px-4 py-2">{{ $item->kategori_kegiatan }}</td>
                             <td class="border px-4 py-2">{{ $item->nama_kegiatan }}</td>
                             <td class="border px-4 py-2">{{ $item->tingkat_kegiatan }}</td>
