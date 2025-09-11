@@ -9,6 +9,7 @@ use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use App\Models\DataMahasiswa;
+use Illuminate\Support\Facades\Auth;
 
 class DataMahasiswasTable
 {
@@ -51,11 +52,13 @@ class DataMahasiswasTable
                     ),
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->visible(fn() => Auth::user()?->level === 'admin'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                    DeleteBulkAction::make()
+                        ->visible(fn() => Auth::user()?->level === 'admin'),
                 ]),
             ]);
     }

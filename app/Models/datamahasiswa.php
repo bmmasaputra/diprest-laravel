@@ -9,6 +9,7 @@ class datamahasiswa extends Model
     protected $table = 'datamahasiswa';
     protected $primaryKey = 'nim';
     protected $keyType = 'string';
+    public $incrementing = false;
     public $timestamps = false;
 
     protected $fillable = [

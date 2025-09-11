@@ -5,6 +5,7 @@ namespace App\Filament\Resources\DataProyeks\Pages;
 use App\Filament\Resources\DataProyeks\DataProyekResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Support\Facades\Auth;
 
 class ListDataProyeks extends ListRecords
 {
@@ -12,8 +13,12 @@ class ListDataProyeks extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        if (in_array(Auth::user()?->level, ['admin', 'mahasiswa'])) {
+            return [
+                CreateAction::make(),
+            ];
+        }
+
+        return [];
     }
 }

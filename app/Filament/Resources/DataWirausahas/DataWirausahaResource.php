@@ -48,7 +48,7 @@ class DataWirausahaResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()->where('jenis', 'pertukaran_mahasiswa');
+        return parent::getEloquentQuery()->where('jenis', 'wirausaha');
     }
 
     public static function getPages(): array
@@ -62,7 +62,7 @@ class DataWirausahaResource extends Resource
 
     public static function canViewAny(): bool
     {
-        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa', 'operator']);
     }
 
     public static function canCreate(): bool
@@ -72,12 +72,12 @@ class DataWirausahaResource extends Resource
 
     public static function canEdit($record): bool
     {
-        return Auth::user()?->level === 'admin';
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
     }
 
     public static function canDelete($record): bool
     {
-        return Auth::user()?->level === 'admin';
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
     }
 
     public static function canForceDelete($record): bool
@@ -88,26 +88,5 @@ class DataWirausahaResource extends Resource
     public static function canRestore($record): bool
     {
         return Auth::user()?->level === 'admin';
-    }
-
-    public static function shouldRegisterNavigation(): bool
-    {
-        $user = Auth::user();
-
-        if (! $user) {
-            return false;
-        }
-
-        // Kalau panel mahasiswa
-        if (filament()->getCurrentPanel()->getId() === 'mahasiswaPanel') {
-            return $user->level === 'mahasiswa';
-        }
-
-        // Kalau panel admin
-        if (filament()->getCurrentPanel()->getId() === 'admin') {
-            return $user->level === 'admin';
-        }
-
-        return false;
     }
 }

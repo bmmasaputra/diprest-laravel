@@ -59,6 +59,12 @@ class User extends Authenticatable implements HasName, FilamentUser
             return $this->level === 'mahasiswa';
         }
 
+        // contoh: operator hanya boleh ke panel operator
+        if ($panel->getId() === 'operator') {
+            return $this->level === 'operator';
+        }
+
+
         return false;
     }
 }

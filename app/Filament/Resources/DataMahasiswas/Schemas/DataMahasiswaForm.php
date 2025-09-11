@@ -16,12 +16,14 @@ class DataMahasiswaForm
                 TextInput::make('nim')
                     ->label('NIM')
                     ->required()
-                    ->maxLength(20),
+                    ->maxLength(20)
+                    ->disabled(fn () => \Illuminate\Support\Facades\Auth::user()?->level === 'mahasiswa'),
 
                 TextInput::make('nama')
                     ->label('Nama Mahasiswa')
                     ->required()
-                    ->maxLength(100),
+                    ->maxLength(100)
+                    ->disabled(fn () => \Illuminate\Support\Facades\Auth::user()?->level === 'mahasiswa'),
 
                 Select::make('fakultas')
                     ->label('Fakultas')
@@ -32,7 +34,8 @@ class DataMahasiswaForm
                             ->pluck('fakultas', 'fakultas')
                             ->toArray()
                     )
-                    ->reactive(),
+                    ->reactive()
+                    ->disabled(fn () => \Illuminate\Support\Facades\Auth::user()?->level === 'mahasiswa'),
 
                 Select::make('program_studi')
                     ->label('Program Studi')
@@ -50,7 +53,8 @@ class DataMahasiswaForm
                             ->toArray();
                     })
                     ->reactive()
-                    ->disabled(fn(callable $get) => blank($get('fakultas'))),
+                    ->disabled(fn(callable $get) => blank($get('fakultas')))
+                    ->disabled(fn () => \Illuminate\Support\Facades\Auth::user()?->level === 'mahasiswa'),
 
                 TextInput::make('no_hp')
                     ->label('No HP')
