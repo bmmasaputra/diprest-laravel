@@ -19,6 +19,24 @@ class DataPengabdiansTable
                 TextColumn::make('nim')
                     ->label('Nama Mahasiswa')
                     ->sortable(),
+                TextColumn::make('mahasiswa_nama')
+                    ->label('Nama mahasiswa')
+                    ->getStateUsing(function ($record) {
+                        $mhs = \App\Models\DataMahasiswa::where('nim', $record->nim)->first();
+                        return $mhs ? $mhs->nama : '-';
+                    }),
+                TextColumn::make('mahasiswa_fakultas')
+                    ->label('Fakultas')
+                    ->getStateUsing(function ($record) {
+                        $mhs = \App\Models\DataMahasiswa::where('nim', $record->nim)->first();
+                        return $mhs ? $mhs->fakultas : '-';
+                    }),
+                TextColumn::make('mahasiswa_program_studi')
+                    ->label('Program studi')
+                    ->getStateUsing(function ($record) {
+                        $mhs = \App\Models\DataMahasiswa::where('nim', $record->nim)->first();
+                        return $mhs ? $mhs->program_studi : '-';
+                    }),
                 TextColumn::make('jenis')
                     ->label('Jenis')
                     ->sortable(),
@@ -44,16 +62,27 @@ class DataPengabdiansTable
                         return '<a href="' . asset('storage/' . $state) . '" target="_blank" class="text-green-700 underline">Lihat File</a>';
                     })
                     ->html(),
-                TextColumn::make('modified')
-                    ->label('Modified')
+                \Filament\Tables\Columns\IconColumn::make('status')
+                    ->label('Status')
+                    ->boolean()
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueColor('success')
+                    ->falseColor('gray')
                     ->sortable(),
             ])
             ->filters([
                 //
             ])
+            ->modifyQueryUsing(function ($query) {
+                $user = \Illuminate\Support\Facades\Auth::user();
+                if ($user && $user->level === 'mahasiswa') {
+                    $query->where('nim', $user->username);
+                }
+            })
             ->recordActions([
                 EditAction::make()
-                    ->visible(fn() => Auth::user()?->level === 'admin'),
+                    ->visible(fn() => in_array(Auth::user()?->level, ['admin', 'mahasiswa'])),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

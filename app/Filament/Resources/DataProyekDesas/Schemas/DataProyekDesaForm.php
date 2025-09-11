@@ -24,6 +24,7 @@ class DataProyekDesaForm
                             'nim' // value: nim
                         )
                     )
+                    ->default(fn() => \Illuminate\Support\Facades\Auth::user()?->level === 'mahasiswa' ? \Illuminate\Support\Facades\Auth::user()->username : null)
                     ->required(),
                 Hidden::make('jenis')
                     ->default('proyek_desa')

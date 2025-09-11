@@ -13,7 +13,7 @@ class ListDataPenelitians extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        if (Auth::user()?->level === 'admin') {
+        if (in_array(Auth::user()?->level, ['admin', 'mahasiswa'])) {
             return [
                 CreateAction::make(),
             ];
