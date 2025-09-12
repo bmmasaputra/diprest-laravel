@@ -6,6 +6,7 @@ use Dom\Text;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\Action;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Facades\Auth;
@@ -83,6 +84,17 @@ class PertukaranMahasiswasTable
             ->recordActions([
                 EditAction::make()
                     ->visible(fn() => in_array(Auth::user()?->level, ['admin', 'mahasiswa'])),
+                Action::make('verifikasi')
+                    ->label(fn($record) => $record->status == 1 ? 'Undo' : 'Verifikasi')
+                    ->icon(fn($record) => $record->status == 1 ? 'heroicon-o-x-circle' : 'heroicon-o-check-circle')
+                    ->color(fn($record) => $record->status == 1 ? 'danger' : 'success')
+                    ->requiresConfirmation()
+                    ->action(function ($record) {
+                        $record->update([
+                            'status' => $record->status == 1 ? 0 : 1,
+                        ]);
+                    })
+                    ->visible(fn() => in_array(Auth::user()?->level, ['admin', 'operator']))
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

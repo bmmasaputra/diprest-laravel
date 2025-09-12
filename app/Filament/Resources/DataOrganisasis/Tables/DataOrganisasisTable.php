@@ -8,6 +8,7 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
+use Filament\Actions\Action;
 
 class DataOrganisasisTable
 {
@@ -72,6 +73,17 @@ class DataOrganisasisTable
             ->recordActions([
                 EditAction::make()
                     ->visible(fn() => in_array(Auth::user()?->level, ['admin', 'mahasiswa'])),
+                Action::make('verifikasi')
+                    ->label(fn($record) => $record->status == 1 ? 'Undo' : 'Verifikasi')
+                    ->icon(fn($record) => $record->status == 1 ? 'heroicon-o-x-circle' : 'heroicon-o-check-circle')
+                    ->color(fn($record) => $record->status == 1 ? 'danger' : 'success')
+                    ->requiresConfirmation()
+                    ->action(function ($record) {
+                        $record->update([
+                            'status' => $record->status == 1 ? 0 : 1,
+                        ]);
+                    })
+                    ->visible(fn() => in_array(Auth::user()?->level, ['admin', 'operator']))
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
