@@ -9,13 +9,23 @@ class DataSertifikasiController extends Controller
 {
     public function index(Request $request)
     {
-        $query = nl_sertifikasi::query();
+        $query = nl_sertifikasi::query()
+            ->join('datamahasiswa', 'nl_sertifikasis.nim', '=', 'datamahasiswa.nim')
+            ->select(
+                'nl_sertifikasis.*',
+                'datamahasiswa.nama',
+                'datamahasiswa.fakultas',
+                'datamahasiswa.program_studi'
+            );
 
         if ($request->has('search') && $request->search != '') {
             $query->Where('dosen_pendamping', 'like', '%' . $request->search . '%')
                 ->orwhere('nama_skema_sertifikasi', 'like', '%' . $request->search . '%')
                 ->orWhere('tingkat_kegiatan', 'like', '%' . $request->search . '%')
-                ->orWhere('tahun_kegiatan', 'like', '%' . $request->search . '%');
+                ->orWhere('tahun_kegiatan', 'like', '%' . $request->search . '%')
+                ->orWhere('datamahasiswa.nama', 'like', '%' . $request->search . '%')
+                ->orWhere('datamahasiswa.fakultas', 'like', '%' . $request->search . '%')
+                ->orWhere('datamahasiswa.program_studi', 'like', '%' . $request->search . '%');
         }
 
         // pagination (10 data per halaman)

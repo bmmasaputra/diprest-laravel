@@ -53,7 +53,9 @@
                 <table class="w-full border-collapse border border-gray-300">
                     <thead class="bg-gray-100">
                         <tr>
-                            <th class="border px-4 py-2">NIM</th>
+                            <th class="border px-4 py-2">Nama</th>
+                            <th class="border px-4 py-2">Fakultas</th>
+                            <th class="border px-4 py-2">Program Studi</th>
                             <th class="border px-4 py-2">Jenis</th>
                             <th class="border px-4 py-2">Nama Program</th>
                             <th class="border px-4 py-2">Jumlah Peserta</th>
@@ -63,7 +65,9 @@
                     <tbody>
                         @forelse($dataindependen as $item)
                         <tr>
-                            <td class="border px-4 py-2">{{ $item->nim }}</td>
+                            <td class="border px-4 py-2">{{ $item->nama }}</td>
+                            <td class="border px-4 py-2">{{ $item->fakultas }}</td>
+                            <td class="border px-4 py-2">{{ $item->program_studi }}</td>
                             <td class="border px-4 py-2">{{ $item->jenis }}</td>
                             <td class="border px-4 py-2">{{ $item->nama_program }}</td>
                             <td class="border px-4 py-2">{{ $item->jumlah_peserta }}</td>
