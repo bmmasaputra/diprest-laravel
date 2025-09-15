@@ -34,6 +34,9 @@ use App\Filament\Resources\PertukaranMahasiswas\PertukaranMahasiswaResource;
 use App\Filament\Resources\DataPembinaans\DataPembinaanResource;
 use App\Filament\Resources\DataRekognisis\DataRekognisiResource;
 use App\Filament\Resources\DataSertifikasis\DataSertifikasiResource;
+use App\Filament\Resources\ChangePasswords\ChangePasswordResource;
+use Filament\Facades\Filament;
+use Filament\Actions\Action;
 
 class MahasiswaPanelPanelProvider extends PanelProvider
 {
@@ -62,6 +65,7 @@ class MahasiswaPanelPanelProvider extends PanelProvider
                 DataPembinaanResource::class,
                 DataRekognisiResource::class,
                 DataSertifikasiResource::class,
+                ChangePasswordResource::class,
             ])
             ->discoverPages(in: app_path('Filament/MahasiswaPanel/Pages'), for: 'App\Filament\MahasiswaPanel\Pages')
             ->pages([
@@ -82,6 +86,12 @@ class MahasiswaPanelPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+            ])
+            ->userMenuItems([
+                Action::make('changePassword')
+                    ->label('Ubah Password')
+                    ->icon('heroicon-o-key')
+                    ->url(fn() => ChangePasswordResource::getUrl(panel: Filament::getCurrentPanel()->getId())),
             ])
             ->authMiddleware([
                 Authenticate::class,

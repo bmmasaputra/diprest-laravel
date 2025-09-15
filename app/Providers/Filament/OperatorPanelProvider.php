@@ -19,6 +19,9 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Resources\ChangePasswords\ChangePasswordResource;
+use Filament\Facades\Filament;
+use Filament\Actions\Action;
 
 class OperatorPanelProvider extends PanelProvider
 {
@@ -29,7 +32,7 @@ class OperatorPanelProvider extends PanelProvider
             ->path('operator')
             ->authGuard('web')
             ->colors([
-                'primary' => Color::Green,
+                'primary' => Color::Amber,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Operator/Pages'), for: 'App\Filament\Operator\Pages')
@@ -51,6 +54,12 @@ class OperatorPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+            ])
+            ->userMenuItems([
+                Action::make('changePassword')
+                    ->label('Ubah Password')
+                    ->icon('heroicon-o-key')
+                    ->url(fn() => ChangePasswordResource::getUrl(panel: Filament::getCurrentPanel()->getId())),
             ])
             ->authMiddleware([
                 Authenticate::class,
