@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 
 class DataPrestasiResource extends Resource
 {
@@ -47,4 +48,35 @@ class DataPrestasiResource extends Resource
             'edit' => EditDataPrestasi::route('/{record}/edit'),
         ];
     }
+
+    public static function canViewAny(): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa', 'operator']);
+    }
+
+    public static function canCreate(): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canEdit($record): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canDelete($record): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canForceDelete($record): bool
+    {
+        return Auth::user()?->level === 'admin';
+    }
+
+    public static function canRestore($record): bool
+    {
+        return Auth::user()?->level === 'admin';
+    }
+
 }

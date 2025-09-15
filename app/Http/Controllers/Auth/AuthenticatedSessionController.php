@@ -33,8 +33,15 @@ class AuthenticatedSessionController extends Controller
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
 
-            // Redirect to user dashboard after login
-            return redirect()->intended('/admin');
+            $user = Auth::user();
+
+            // Redirect sesuai level user
+            return match ($user->level) {
+                'admin' => redirect()->to('/admin'),
+                'mahasiswa'  => redirect()->to('/mahasiswaPanel'),
+                'operator'   => redirect()->to('/operator'),
+                default      => redirect()->to('/'),
+            };
         }
 
         // If authentication fails

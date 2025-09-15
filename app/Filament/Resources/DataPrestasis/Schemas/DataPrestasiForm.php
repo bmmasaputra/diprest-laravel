@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\DataPrestasis\Schemas;
 
-use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components;
@@ -25,6 +25,7 @@ class DataPrestasiForm
                             'nim' // value: nim
                         )
                     )
+                    ->default(fn() => \Illuminate\Support\Facades\Auth::user()?->level === 'mahasiswa' ? \Illuminate\Support\Facades\Auth::user()->username : null)
                     ->required(),
                 TextInput::make('nama_kegiatan')
                     ->label('Nama Kegiatan')
@@ -48,7 +49,7 @@ class DataPrestasiForm
                     ])
                     ->required(),
                 TextInput::make('jumlah_asal_peserta')
-                    ->label('Jumlah Asal Peserta')
+                    ->label('Jumlah Universitas Peserta')
                     ->required()
                     ->numeric()
                     ->default(0),
@@ -71,11 +72,11 @@ class DataPrestasiForm
                     ])
                     ->required(),
 
-                DateTimePicker::make('tanggal_kegiatan_a')
+                DatePicker::make('tanggal_kegiatan_a')
                     ->label('Tanggal Kegiatan Dimulai')
                     ->required(),
 
-                DateTimePicker::make('tanggal_kegiatan_e')
+                DatePicker::make('tanggal_kegiatan_e')
                     ->label('Tanggal Kegiatan Berakhir')
                     ->required(),
 

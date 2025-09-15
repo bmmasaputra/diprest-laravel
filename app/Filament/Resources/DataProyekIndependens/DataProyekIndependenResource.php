@@ -14,6 +14,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 use UnitEnum;
 
 class DataProyekIndependenResource extends Resource
@@ -22,7 +23,7 @@ class DataProyekIndependenResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'MBKM';
 
-    protected static ?string $label = 'Data Proyek Independen';
+    protected static ?string $label = 'Data Studi Independen';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
@@ -47,7 +48,7 @@ class DataProyekIndependenResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()->where('jenis', 'pertukaran_mahasiswa');
+        return parent::getEloquentQuery()->where('jenis', 'studi_pi');
     }
 
     public static function getPages(): array
@@ -57,5 +58,35 @@ class DataProyekIndependenResource extends Resource
             'create' => CreateDataProyekIndependen::route('/create'),
             'edit' => EditDataProyekIndependen::route('/{record}/edit'),
         ];
+    }
+
+    public static function canViewAny(): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa', 'operator']);
+    }
+
+    public static function canCreate(): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canEdit($record): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canDelete($record): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canForceDelete($record): bool
+    {
+        return Auth::user()?->level === 'admin';
+    }
+
+    public static function canRestore($record): bool
+    {
+        return Auth::user()?->level === 'admin';
     }
 }

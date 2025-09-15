@@ -24,9 +24,10 @@ class DataWirausahaForm
                             'nim' // value: nim
                         )
                     )
+                    ->default(fn() => \Illuminate\Support\Facades\Auth::user()?->level === 'mahasiswa' ? \Illuminate\Support\Facades\Auth::user()->username : null)
                     ->required(),
                 Hidden::make('jenis')
-                    ->default('data_mengajar')
+                    ->default('wirausaha')
                     ->required(),
                 TextInput::make('nama_program')
                     ->label('Program Wirausaha')

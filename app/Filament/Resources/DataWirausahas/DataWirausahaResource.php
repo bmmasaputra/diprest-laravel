@@ -14,6 +14,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 use UnitEnum;
 
 class DataWirausahaResource extends Resource
@@ -47,7 +48,7 @@ class DataWirausahaResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()->where('jenis', 'pertukaran_mahasiswa');
+        return parent::getEloquentQuery()->where('jenis', 'wirausaha');
     }
 
     public static function getPages(): array
@@ -57,5 +58,35 @@ class DataWirausahaResource extends Resource
             'create' => CreateDataWirausaha::route('/create'),
             'edit' => EditDataWirausaha::route('/{record}/edit'),
         ];
+    }
+
+    public static function canViewAny(): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa', 'operator']);
+    }
+
+    public static function canCreate(): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canEdit($record): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canDelete($record): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canForceDelete($record): bool
+    {
+        return Auth::user()?->level === 'admin';
+    }
+
+    public static function canRestore($record): bool
+    {
+        return Auth::user()?->level === 'admin';
     }
 }

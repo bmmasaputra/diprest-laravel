@@ -5,6 +5,7 @@ namespace App\Filament\Resources\DataMengajars\Pages;
 use App\Filament\Resources\DataMengajars\DataMengajarResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Support\Facades\Auth;
 
 class ListDataMengajars extends ListRecords
 {
@@ -12,8 +13,12 @@ class ListDataMengajars extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        if (in_array(Auth::user()?->level, ['admin', 'mahasiswa'])) {
+            return [
+                CreateAction::make(),
+            ];
+        }
+
+        return [];
     }
 }

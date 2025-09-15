@@ -14,10 +14,16 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-full">
-    <div class="flex min-h-screen">
+<body class="h-full overflow-hidden">
+    <div class="flex min-h-screen overflow-hidden">
         <!-- Left: Login Form -->
-        <div class="flex flex-col justify-center flex-1 bg-white px-8 py-12 sm:px-16 lg:px-8 xl:px-12">
+        <div class="flex flex-col isolate overflow-hidden justify-center flex-1 bg-white px-8 py-12 sm:px-16 lg:px-8 xl:px-12">
+            <div aria-hidden="true" class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl">
+                <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="aspect-1097/845 w-274.25 bg-linear-to-tr from-[#05ff4c] to-[#44b507] opacity-30"></div>
+            </div>
+            <div aria-hidden="true" class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:-top-112 sm:ml-16 sm:translate-x-0">
+                <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="aspect-1097/845 w-274.25 bg-linear-to-tr from-[#05ff4c] to-[#44b507] opacity-40"></div>
+            </div>
             <div class="mx-auto w-full max-w-sm">
                 <img src="{{ asset('image/logo.png') }}" alt="Universitas Palangka Raya" class="mx-auto h-20 w-auto mb-4" />
                 <h2 class="text-center text-2xl font-bold tracking-tight text-gray-900 mb-8">Log In as Admin</h2>
@@ -67,11 +73,6 @@
                     <a href="/" class="font-semibold text-green-600 hover:text-green-500">Kembali ke beranda</a>
                 </p>
             </div>
-        </div>
-
-        <!-- Right: Image -->
-        <div class="hidden lg:flex xl:flex-3 lg:flex-2 items-center justify-center bg-green-50">
-            <img src="{{ asset('image/hero.jpg') }}" alt="Rektorat Universitas Palangka Raya" class="object-cover w-full h-full max-h-screen" />
         </div>
     </div>
 </body>

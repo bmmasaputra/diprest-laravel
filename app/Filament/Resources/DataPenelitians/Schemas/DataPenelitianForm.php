@@ -24,12 +24,13 @@ class DataPenelitianForm
                             'nim' // value: nim
                         )
                     )
+                    ->default(fn() => \Illuminate\Support\Facades\Auth::user()?->level === 'mahasiswa' ? \Illuminate\Support\Facades\Auth::user()->username : null)
                     ->required(),
                 Hidden::make('jenis')
-                    ->default('data_penelitian')
+                    ->default('penelitian')
                     ->required(),
                 TextInput::make('nama_program')
-                    ->label('Program Penelitian')
+                    ->label('Nama Program Penelitian')
                     ->required(),
                 Select::make('level')
                     ->label('Level')

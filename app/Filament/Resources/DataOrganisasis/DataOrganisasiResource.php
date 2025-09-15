@@ -13,6 +13,8 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
+
 
 class DataOrganisasiResource extends Resource
 {
@@ -46,5 +48,61 @@ class DataOrganisasiResource extends Resource
             'create' => CreateDataOrganisasi::route('/create'),
             'edit' => EditDataOrganisasi::route('/{record}/edit'),
         ];
+    }
+
+    public static function canViewAny(): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa', 'operator']);
+    }
+
+    public static function canCreate(): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canEdit($record): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canDelete($record): bool
+    {
+        return in_array(Auth::user()?->level, ['admin', 'mahasiswa']);
+    }
+
+    public static function canForceDelete($record): bool
+    {
+        return Auth::user()?->level === 'admin';
+    }
+
+    public static function canRestore($record): bool
+    {
+        return Auth::user()?->level === 'admin';
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        $user = Auth::user();
+
+        if (! $user) {
+            return false;
+        }
+
+        // Kalau panel mahasiswa
+        if (filament()->getCurrentPanel()->getId() === 'mahasiswaPanel') {
+            return $user->level === 'mahasiswa';
+        }
+
+        // Kalau panel admin
+        if (filament()->getCurrentPanel()->getId() === 'admin') {
+            return $user->level === 'admin';
+        }
+
+        // Kalau panel admin
+        if (filament()->getCurrentPanel()->getId() === 'operator') {
+            return $user->level === 'operator';
+        }
+
+        return false;
     }
 }

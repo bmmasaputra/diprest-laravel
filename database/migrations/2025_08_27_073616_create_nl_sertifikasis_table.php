@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nl_sertifikasis', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('nim', 20);
-            $table->string('nama_skema_kegiatan', 255);
+            $table->string('nama_skema_sertifikasi', 255);
             $table->string('tingkat_kegiatan', 255);
             $table->integer('tahun_kegiatan');
             $table->string('dosen_pendamping', 255)->nullable();
