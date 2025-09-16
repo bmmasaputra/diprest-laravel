@@ -28,6 +28,9 @@ class OperatorPanelProvider extends PanelProvider
     {
         return $panel
             ->id('operator')
+            ->brandLogo(asset('image/logo-filament.png'))
+            ->darkModeBrandLogo(asset('image/logo-filament-dark.png'))
+            ->brandLogoHeight('2rem')
             ->path('operator')
             ->authGuard('web')
             ->colors([

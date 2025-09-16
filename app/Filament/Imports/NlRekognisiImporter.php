@@ -2,15 +2,15 @@
 
 namespace App\Filament\Imports;
 
-use App\Models\Mbkm;
+use App\Models\nl_rekognisi as NlRekognisi;
 use Filament\Actions\Imports\ImportColumn;
 use Filament\Actions\Imports\Importer;
 use Filament\Actions\Imports\Models\Import;
 use Illuminate\Support\Number;
 
-class MbkmImporter extends Importer
+class NlRekognisiImporter extends Importer
 {
-    protected static ?string $model = Mbkm::class;
+    protected static ?string $model = NlRekognisi::class;
 
     public static function getColumns(): array
     {
@@ -18,16 +18,15 @@ class MbkmImporter extends Importer
             ImportColumn::make('nim')
                 ->requiredMapping()
                 ->rules(['required', 'max:20']),
-            ImportColumn::make('nama_program')
+            ImportColumn::make('kategori_kegiatan')
                 ->rules(['max:255']),
-            ImportColumn::make('level')
+            ImportColumn::make('nama_kegiatan')
                 ->rules(['max:255']),
-            ImportColumn::make('jumlah_peserta')
-                ->numeric()
-                ->rules(['required', 'integer']),
             ImportColumn::make('tahun_kegiatan')
                 ->numeric()
                 ->rules(['integer']),
+            ImportColumn::make('url')
+                ->rules(['max:255']),
             ImportColumn::make('status')
                 ->requiredMapping()
                 ->numeric()
@@ -35,18 +34,14 @@ class MbkmImporter extends Importer
         ];
     }
 
-    public function resolveRecord(): ?Mbkm
+    public function resolveRecord(): NlRekognisi
     {
-        // Set 'jenis' dari opsi action; fallback boleh 'magang'
-        $jenis = $this->options['jenis'] ?? 'magang';
-
-        // Jika ingin selalu membuat baris baru:
-        return new Mbkm(['jenis' => $jenis]);
+        return new NlRekognisi();
     }
 
     public static function getCompletedNotificationBody(Import $import): string
     {
-        $body = 'Your mbkm import has completed and ' . Number::format($import->successful_rows) . ' ' . str('row')->plural($import->successful_rows) . ' imported.';
+        $body = 'Your nl rekognisi import has completed and ' . Number::format($import->successful_rows) . ' ' . str('row')->plural($import->successful_rows) . ' imported.';
 
         if ($failedRowsCount = $import->getFailedRowsCount()) {
             $body .= ' ' . Number::format($failedRowsCount) . ' ' . str('row')->plural($failedRowsCount) . ' failed to import.';
