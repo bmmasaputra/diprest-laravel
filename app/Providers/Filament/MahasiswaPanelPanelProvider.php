@@ -44,6 +44,9 @@ class MahasiswaPanelPanelProvider extends PanelProvider
     {
         return $panel
             ->id('mahasiswaPanel')
+            ->brandLogo(asset('image/logo-filament.png'))
+            ->darkModeBrandLogo(asset('image/logo-filament-dark.png'))
+            ->brandLogoHeight('2rem')
             ->path('mahasiswaPanel')
             ->authGuard('web')
             ->colors([
