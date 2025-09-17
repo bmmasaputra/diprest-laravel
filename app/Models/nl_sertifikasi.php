@@ -28,6 +28,7 @@ class nl_sertifikasi extends Model
         'tahun_kegiatan',
         'dosen_pendamping',
         'file_sertifikat',
+        'status',
         'modified',
     ];
 

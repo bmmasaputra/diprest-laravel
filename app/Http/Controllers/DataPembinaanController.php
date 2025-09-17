@@ -16,7 +16,8 @@ class DataPembinaanController extends Controller
                 'datamahasiswa.nama',
                 'datamahasiswa.fakultas',
                 'datamahasiswa.program_studi'
-            );
+            )
+            ->where('nl_pembinaan.status', 1);
 
         if ($request->has('search') && $request->search != '') {
             $query->Where('kategori_kegiatan', 'like', '%' . $request->search . '%')

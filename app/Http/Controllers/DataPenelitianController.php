@@ -16,7 +16,8 @@ class DataPenelitianController extends Controller
                 'datamahasiswa.nama',
                 'datamahasiswa.fakultas',
                 'datamahasiswa.program_studi'
-            );
+            )
+            ->where('mbkm.status', 1);
 
         // Filter pencarian
         if ($request->has('search') && $request->search != '') {

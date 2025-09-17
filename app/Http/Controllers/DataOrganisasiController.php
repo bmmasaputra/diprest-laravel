@@ -16,7 +16,8 @@ class DataOrganisasiController extends Controller
                 'datamahasiswa.nama',
                 'datamahasiswa.fakultas',
                 'datamahasiswa.program_studi'
-            );
+            )
+            ->where('dataorganisasi.status', 1);
 
         // Filter pencarian
         if ($request->has('search') && $request->search != '') {
