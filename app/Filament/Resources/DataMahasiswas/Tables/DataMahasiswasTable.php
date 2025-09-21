@@ -10,6 +10,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use App\Models\DataMahasiswa;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
 
 class DataMahasiswasTable
 {
@@ -55,6 +56,35 @@ class DataMahasiswasTable
                 EditAction::make()
                     ->visible(fn() => Auth::user()?->level === 'admin'),
             ])
+            ->modifyQueryUsing(function (Builder $query) {
+                $user = Auth::user();
+
+                if (! $user) {
+                    return;
+                }
+                
+                // Operator: hanya data dengan fakultas yang sama
+                if ($user->level === 'operator') {
+                    $table = $query->getModel()->getTable();
+
+                    if ($table === 'datamahasiswa') {
+                        // Jika resource berbasis DataMahasiswa
+                        $query->where('fakultas', $user->fakultas);
+                    } else {
+                        // Jika resource berbasis model lain (mis. DataMagang) yang punya kolom 'nim'
+                        // Filter berdasarkan fakultas dari tabel datamahasiswa (tanpa join agar aman)
+                        $query->whereIn("$table.nim", function ($sub) use ($user) {
+                            $sub->from('datamahasiswa')
+                                ->select('nim')
+                                ->where('fakultas', $user->fakultas);
+                        });
+                    }
+
+                    return;
+                }
+
+                // Admin / role lain: biarkan melihat semua data (tanpa filter)
+            })
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make()

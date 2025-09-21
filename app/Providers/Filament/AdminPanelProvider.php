@@ -27,6 +27,9 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->brandLogo(asset('image/logo-filament.png'))
+            ->darkModeBrandLogo(asset('image/logo-filament-dark.png'))
+            ->brandLogoHeight('2rem')
             ->id('admin')
             ->path('admin')
             ->authGuard('web')

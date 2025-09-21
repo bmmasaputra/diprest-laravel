@@ -12,7 +12,6 @@ use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use App\Filament\Widgets\MyAccountWidget;
 use App\Filament\Widgets\DashboardWidget;
-use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -29,6 +28,9 @@ class OperatorPanelProvider extends PanelProvider
     {
         return $panel
             ->id('operator')
+            ->brandLogo(asset('image/logo-filament.png'))
+            ->darkModeBrandLogo(asset('image/logo-filament-dark.png'))
+            ->brandLogoHeight('2rem')
             ->path('operator')
             ->authGuard('web')
             ->colors([

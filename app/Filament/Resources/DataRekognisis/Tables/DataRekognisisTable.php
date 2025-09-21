@@ -9,6 +9,7 @@ use Filament\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
 
 class DataRekognisisTable
 {
@@ -79,11 +80,39 @@ class DataRekognisisTable
             ->filters([
                 //
             ])
-            ->modifyQueryUsing(function ($query) {
-                $user = \Illuminate\Support\Facades\Auth::user();
-                if ($user && $user->level === 'mahasiswa') {
-                    $query->where('nim', $user->username);
+            ->modifyQueryUsing(function (Builder $query) {
+                $user = Auth::user();
+                if (! $user) {
+                    return;
                 }
+
+                // Mahasiswa: hanya data miliknya sendiri (nim = username)
+                if ($user->level === 'mahasiswa') {
+                    $query->where($query->getModel()->getTable() . '.nim', $user->username);
+                    return;
+                }
+
+                // Operator: hanya data dengan fakultas yang sama
+                if ($user->level === 'operator') {
+                    $table = $query->getModel()->getTable();
+
+                    if ($table === 'datamahasiswa') {
+                        // Jika resource berbasis DataMahasiswa
+                        $query->where('fakultas', $user->fakultas);
+                    } else {
+                        // Jika resource berbasis model lain (mis. DataMagang) yang punya kolom 'nim'
+                        // Filter berdasarkan fakultas dari tabel datamahasiswa (tanpa join agar aman)
+                        $query->whereIn("$table.nim", function ($sub) use ($user) {
+                            $sub->from('datamahasiswa')
+                                ->select('nim')
+                                ->where('fakultas', $user->fakultas);
+                        });
+                    }
+
+                    return;
+                }
+
+                // Admin / role lain: biarkan melihat semua data (tanpa filter)
             })
             ->recordActions([
                 EditAction::make()

@@ -16,7 +16,8 @@ class DataRekognisiController extends Controller
                 'datamahasiswa.nama',
                 'datamahasiswa.fakultas',
                 'datamahasiswa.program_studi'
-            );
+            )
+            ->where('nl_rekognisi.status', 1);
 
 
         if ($request->has('search') && $request->search != '') {

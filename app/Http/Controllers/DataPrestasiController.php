@@ -16,7 +16,8 @@ class DataPrestasiController extends Controller
                 'datamahasiswa.nama',
                 'datamahasiswa.fakultas',
                 'datamahasiswa.program_studi'
-            );
+            )
+            ->where('dataprestasi.status', 1);
 
         if ($request->has('search') && $request->search != '') {
             $query->where(function ($q) use ($request) {

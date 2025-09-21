@@ -16,7 +16,8 @@ class DataSertifikasiController extends Controller
                 'datamahasiswa.nama',
                 'datamahasiswa.fakultas',
                 'datamahasiswa.program_studi'
-            );
+            )
+            ->where('nl_sertifikasis.status', 1);
 
         if ($request->has('search') && $request->search != '') {
             $query->Where('dosen_pendamping', 'like', '%' . $request->search . '%')
