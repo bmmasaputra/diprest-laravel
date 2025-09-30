@@ -135,7 +135,7 @@
                         </svg>
                         <span class="sr-only">Facebook page</span>
                     </a>
-                    <a href="#" class="text-gray-600 hover:text-black dark:hover:text-black">
+                    <a href="https://www.instagram.com/kemahasiswaan_upr?igsh=ZnluMWRiemdwNGhs" class="text-gray-600 hover:text-black dark:hover:text-black">
                         <!-- Instagram icon -->
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                             <rect width="18" height="18" x="3" y="3" rx="5" stroke="currentColor" />
@@ -144,7 +144,7 @@
                         </svg>
                         <span class="sr-only">Instagram</span>
                     </a>
-                    <a href="#" class="text-gray-600 hover:text-black dark:hover:text-black">
+                    <a href="https://youtube.com/@kemahasiswaanupr?si=ocmtZXr97qQ9roBx" class="text-gray-600 hover:text-black dark:hover:text-black">
                         <!-- YouTube icon -->
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M21.8 8.001a2.75 2.75 0 0 0-1.93-1.946C18.14 6 12 6 12 6s-6.14 0-7.87.055A2.75 2.75 0 0 0 2.2 8.001 28.6 28.6 0 0 0 2 12a28.6 28.6 0 0 0 .2 3.999 2.75 2.75 0 0 0 1.93 1.946C5.86 18 12 18 12 18s6.14 0 7.87-.055a2.75 2.75 0 0 0 1.93-1.946A28.6 28.6 0 0 0 22 12a28.6 28.6 0 0 0-.2-3.999zM10 15.5v-7l6 3.5-6 3.5z" />
