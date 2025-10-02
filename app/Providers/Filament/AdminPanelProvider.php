@@ -32,6 +32,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogoHeight('2rem')
             ->id('admin')
             ->path('admin')
+            ->globalSearch(false)
             ->authGuard('web')
             ->colors([
                 'primary' => Color::Blue,

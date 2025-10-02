@@ -48,6 +48,7 @@ class MahasiswaPanelPanelProvider extends PanelProvider
             ->darkModeBrandLogo(asset('image/logo-filament-dark.png'))
             ->brandLogoHeight('2rem')
             ->path('mahasiswaPanel')
+            ->globalSearch(false)
             ->authGuard('web')
             ->colors([
                 'primary' => Color::Green,

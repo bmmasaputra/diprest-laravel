@@ -34,6 +34,11 @@ class DataMahasiswaResource extends Resource
         return DataMahasiswasTable::configure($table);
     }
 
+    public static function getPluralLabel() : ?string
+    {
+        return "Data Mahasiswa";
+    }
+
     public static function getRelations(): array
     {
         return [
