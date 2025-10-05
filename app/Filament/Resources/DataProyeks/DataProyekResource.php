@@ -46,6 +46,11 @@ class DataProyekResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): ?string
+    {
+        return "Data Proyek Kemanusiaan";
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->where('jenis', 'proyek_kemanusiaan');

@@ -46,6 +46,11 @@ class DataPembinaanResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): ?string
+    {
+        return "Data Pembinaan";
+    }
+
     public static function getPages(): array
     {
         return [

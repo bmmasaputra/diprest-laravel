@@ -46,6 +46,11 @@ class DataRekognisiResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): ?string
+    {
+        return "Data Rekognisi";
+    }
+
     public static function getPages(): array
     {
         return [

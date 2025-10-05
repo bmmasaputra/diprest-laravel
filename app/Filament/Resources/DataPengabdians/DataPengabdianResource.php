@@ -46,6 +46,11 @@ class DataPengabdianResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): ?string
+    {
+        return "Data Pengabdian ke Masyarakat";
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->where('jenis', 'pengabdian');

@@ -11,6 +11,17 @@ class DashboardController extends Controller
 {
     public function index()
     {
+
+        // Fungsi untuk format angka (1.2k, 3.4M, dst)
+        $formatNumber = function ($number) {
+            if ($number >= 1000000) {
+                return round($number / 1000000, 1) . 'M';
+            } elseif ($number >= 1000) {
+                return round($number / 1000, 1) . 'k';
+            }
+            return $number;
+        };
+
         // Hitung total dari masing-masing tabel
         $totalPrestasi = dataprestasi::count();
         $totalOrganisasi = dataorganisasi::count();
