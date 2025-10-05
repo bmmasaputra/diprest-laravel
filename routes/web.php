@@ -163,3 +163,8 @@ Route::get('/data-pembinaan-mental-kebangsaan', [DataPembinaanController::class,
 use App\Http\Controllers\DataSertifikasiController;
 
 Route::get('/data-sertifikasi', [DataSertifikasiController::class, 'index'])->name('datasertifikasi.index');
+
+// dashboard routes
+use App\Http\Controllers\DashboardController;
+
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');

@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-gray-100 min-h-screen">
-    <x-Navbar background="bg-gray-900" title="Data Penelitian UPR"></x-Navbar>
+    <x-Navbar background="bg-white" title="Data Penelitian UPR"></x-Navbar>
 
     <!-- Header Section -->
     <div class=" pt-28 pb-10">

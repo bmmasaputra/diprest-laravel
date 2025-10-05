@@ -32,33 +32,33 @@
             </div>
             <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
                 <div class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-black sm:grid-cols-2 md:flex lg:gap-x-10">
-                    <a href="#">Data prestasi <span aria-hidden="true">&rarr;</span></a>
-                    <a href="#">Data organisasi <span aria-hidden="true">&rarr;</span></a>
-                    <a href="#">Data penelitian <span aria-hidden="true">&rarr;</span></a>
-                    <a href="#">Lainya <span aria-hidden="true">&rarr;</span></a>
+                    <a href="{{ url('/data-prestasi') }}">Data prestasi <span aria-hidden="true">&rarr;</span></a>
+                    <a href="{{ url('/data-organisasi') }}">Data organisasi <span aria-hidden="true">&rarr;</span></a>
+                    <a href="{{ url('/data-penelitian') }}">Data penelitian <span aria-hidden="true">&rarr;</span></a>
+                    <a href="{{ url('/statistik') }}">Lainya <span aria-hidden="true">&rarr;</span></a>
                 </div>
                 <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
                     <div class="flex flex-col-reverse gap-1">
-                        <dt class="text-base/7 text-gray-600 max-w-[180px] break-words whitespace-normal">Prestasi nasional & internasional</dt>
-                        <dd class="text-4xl font-semibold tracking-tight text-black">100+</dd>
+                        <dt class="text-base/7 font-semibold text-black max-w-[180px] break-words whitespace-normal">Data Prestasi</dt>
+                        <dd class="text-4xl font-semibold tracking-tight text-black">{{ $totalPrestasi }}</dd>
                     </div>
                     <div class="flex flex-col-reverse gap-1">
-                        <dt class="text-base/7 text-gray-600 max-w-[180px] break-words whitespace-normal">
-                            Organisasi himpunan & UKM
+                        <dt class="text-base/7 font-semibold text-black max-w-[180px] break-words whitespace-normal">
+                            Data Organisasi
                         </dt>
-                        <dd class="text-4xl font-semibold tracking-tight text-black">300+</dd>
+                        <dd class="text-4xl font-semibold tracking-tight text-black">{{ $totalOrganisasi }}</dd>
                     </div>
                     <div class="flex flex-col-reverse gap-1">
-                        <dt class="text-base/7 text-gray-600 max-w-[180px] break-words whitespace-normal">
-                            Publikasi nasional & internasional
+                        <dt class="text-base/7 font-semibold text-black max-w-[180px] break-words whitespace-normal">
+                            Data Penelitian
                         </dt>
-                        <dd class="text-4xl font-semibold tracking-tight text-black">1000+</dd>
+                        <dd class="text-4xl font-semibold tracking-tight text-black">{{ $totalPenelitian }}</dd>
                     </div>
                     <div class="flex flex-col-reverse gap-1" max-w-[180px] break-words whitespace-normal>
-                        <dt class="text-base/7 text-gray-600 max-w-[180px] break-words whitespace-normal">
-                            Mahasiswa magang & pertukaran
+                        <dt class="text-base/7 font-semibold text-black max-w-[180px] break-words whitespace-normal">
+                            Data Magang
                         </dt>
-                        <dd class="text-4xl font-semibold tracking-tight text-black">500+</dd>
+                        <dd class="text-4xl font-semibold tracking-tight text-black">{{ $totalMagang }}</dd>
                     </div>
                 </dl>
             </div>
@@ -135,7 +135,7 @@
                         </svg>
                         <span class="sr-only">Facebook page</span>
                     </a>
-                    <a href="#" class="text-gray-600 hover:text-black dark:hover:text-black">
+                    <a href="https://www.instagram.com/kemahasiswaan_upr?igsh=ZnluMWRiemdwNGhs" class="text-gray-600 hover:text-black dark:hover:text-black">
                         <!-- Instagram icon -->
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                             <rect width="18" height="18" x="3" y="3" rx="5" stroke="currentColor" />
@@ -144,7 +144,7 @@
                         </svg>
                         <span class="sr-only">Instagram</span>
                     </a>
-                    <a href="#" class="text-gray-600 hover:text-black dark:hover:text-black">
+                    <a href="https://youtube.com/@kemahasiswaanupr?si=ocmtZXr97qQ9roBx" class="text-gray-600 hover:text-black dark:hover:text-black">
                         <!-- YouTube icon -->
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M21.8 8.001a2.75 2.75 0 0 0-1.93-1.946C18.14 6 12 6 12 6s-6.14 0-7.87.055A2.75 2.75 0 0 0 2.2 8.001 28.6 28.6 0 0 0 2 12a28.6 28.6 0 0 0 .2 3.999 2.75 2.75 0 0 0 1.93 1.946C5.86 18 12 18 12 18s6.14 0 7.87-.055a2.75 2.75 0 0 0 1.93-1.946A28.6 28.6 0 0 0 22 12a28.6 28.6 0 0 0-.2-3.999zM10 15.5v-7l6 3.5-6 3.5z" />

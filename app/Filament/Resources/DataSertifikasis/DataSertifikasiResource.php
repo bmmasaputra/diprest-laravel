@@ -46,6 +46,11 @@ class DataSertifikasiResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): ?string
+    {
+        return "Data Sertifikasi";
+    }
+
     public static function getPages(): array
     {
         return [

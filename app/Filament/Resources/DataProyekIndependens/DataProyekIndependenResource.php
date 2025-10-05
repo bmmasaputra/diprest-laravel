@@ -46,6 +46,11 @@ class DataProyekIndependenResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): ?string
+    {
+        return "Data Studi Independen";
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->where('jenis', 'studi_pi');

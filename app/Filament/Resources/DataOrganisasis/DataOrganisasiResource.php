@@ -41,6 +41,11 @@ class DataOrganisasiResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): ?string
+    {
+        return "Data Organisasi";
+    }
+
     public static function getPages(): array
     {
         return [

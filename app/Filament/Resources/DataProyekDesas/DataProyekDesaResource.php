@@ -46,6 +46,11 @@ class DataProyekDesaResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): ?string
+    {
+        return "Data Proyek Desa";
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->where('jenis', 'proyek_desa');

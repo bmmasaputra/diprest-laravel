@@ -47,6 +47,11 @@ class PertukaranMahasiswaResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): ?string
+    {
+        return "Data Pertukaran Mahasiswa";
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->where('jenis', 'pertukaran_mahasiswa');

@@ -32,6 +32,7 @@ class OperatorPanelProvider extends PanelProvider
             ->darkModeBrandLogo(asset('image/logo-filament-dark.png'))
             ->brandLogoHeight('2rem')
             ->path('operator')
+            ->globalSearch(false)
             ->authGuard('web')
             ->colors([
                 'primary' => Color::Amber,

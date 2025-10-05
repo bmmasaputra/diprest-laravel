@@ -41,6 +41,11 @@ class DataPrestasiResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): ?string
+    {
+        return "Data Prestasi";
+    }
+
     public static function getPages(): array
     {
         return [
@@ -79,5 +84,4 @@ class DataPrestasiResource extends Resource
     {
         return Auth::user()?->level === 'admin';
     }
-
 }
