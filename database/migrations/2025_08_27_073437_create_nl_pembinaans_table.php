@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('kategori_kegiatan', 255);
             $table->string('nama_kegiatan', 255);
             $table->string('tingkat_kegiatan', 255);
+            $table->date('tahun_kegiatan_a', 255)->nullable();
+            $table->date('tanggal_kegiatan_e', 255)->nullable();
             $table->integer('tahun_kegiatan');
             $table->string('url', 255);
             $table->string('unggah_dokumen', 255)->nullable();

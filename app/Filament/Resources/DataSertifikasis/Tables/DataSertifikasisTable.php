@@ -48,6 +48,13 @@ class DataSertifikasisTable
                     ->label('Tingkat Kegiatan')
                     ->searchable(),
 
+                TextColumn::make('tanggal_kegiatan_a')
+                    ->label('Tanggal kegiatan dimulai')
+                    ->searchable(),
+                TextColumn::make('tanggal_kegiatan_e')
+                    ->label('Tanggal kegiatan berakhir')
+                    ->searchable(),
+
                 TextColumn::make('tahun_kegiatan')
                     ->label('Tahun Kegiatan')
                     ->sortable(),

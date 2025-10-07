@@ -64,7 +64,7 @@ class DataPrestasisTable
                     ->searchable(),
                 TextColumn::make('tanggal_kegiatan_e')
                     ->label('Tanggal kegiatan berakhir')
-                    ->searchable(),
+                    ->searchable(), 
                 TextColumn::make('unggah_sertifikat')
                     ->formatStateUsing(function ($state) {
                         if (!$state) return '-';

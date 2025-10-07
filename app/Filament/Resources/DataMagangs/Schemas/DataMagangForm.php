@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\DataMagangs\Schemas;
 
+use Filament\Forms\Components\DatePicker;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
@@ -44,6 +45,12 @@ class DataMagangForm
                 TextInput::make('jumlah_peserta')
                     ->label('Jumlah Peserta')
                     ->numeric()
+                    ->required(),
+                DatePicker::make('tanggal_kegiatan_a')
+                    ->label('Tanggal Kegiatan Dimulai')
+                    ->required(),
+                DatePicker::make('tanggal_kegiatan_e')
+                    ->label('Tanggal Kegiatan Berakhir')
                     ->required(),
                 Select::make('tahun_kegiatan')
                     ->label('Tahun Kegiatan')

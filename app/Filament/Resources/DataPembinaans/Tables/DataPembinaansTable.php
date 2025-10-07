@@ -44,6 +44,12 @@ class DataPembinaansTable
                     ->searchable(),
                 TextColumn::make('tingkat_kegiatan')
                     ->searchable(),
+                TextColumn::make('tanggal_kegiatan_a')
+                    ->label('Tanggal kegiatan dimulai')
+                    ->searchable(),
+                TextColumn::make('tanggal_kegiatan_e')
+                    ->label('Tanggal kegiatan berakhir')
+                    ->searchable(),
                 TextColumn::make('tahun_kegiatan')
                     ->searchable(),
                 TextColumn::make('url')

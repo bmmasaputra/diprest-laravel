@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('nim', 20);
             $table->string('kategori_kegiatan', 255);
             $table->string('nama_kegiatan', 255);
+            $table->date('tahun_kegiatan_a', 255)->nullable();
+            $table->date('tanggal_kegiatan_e', 255)->nullable();
             $table->integer('tahun_kegiatan');
             $table->string('unggah_sertifikat', 255)->nullable();
             $table->string('unggah_foto', 255)->nullable();

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('nama_program', 255)->nullable();
             $table->string('level', 255)->nullable();
             $table->integer('jumlah_peserta')->default(0);
+            $table->date('tahun_kegiatan_a', 255)->nullable();
+            $table->date('tanggal_kegiatan_e', 255)->nullable();
             $table->integer('tahun_kegiatan')->nullable();
             $table->string('dokumen_pendukung', 255)->nullable();
             $table->integer('status')->default(0);

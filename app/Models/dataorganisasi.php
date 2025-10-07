@@ -27,6 +27,8 @@ class DataOrganisasi extends Model
         'nama_organisasi',
         'jbt_organisasi',
         'periode',
+        'tanggal_kegiatan_a',
+        'tanggal_kegiatan_e',
         'unggah_sk',
         'status',
     ];

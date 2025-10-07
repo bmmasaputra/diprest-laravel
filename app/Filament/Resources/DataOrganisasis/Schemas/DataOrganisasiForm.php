@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\DataOrganisasis\Schemas;
 
 use Faker\Core\File;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
@@ -37,6 +38,15 @@ class DataOrganisasiForm
                 TextInput::make('jbt_organisasi')
                     ->label('Jabatan Organisasi')
                     ->required(),
+
+                DatePicker::make('tanggal_kegiatan_a')
+                    ->label('Tanggal Kegiatan Dimulai')
+                    ->required(),
+
+                DatePicker::make('tanggal_kegiatan_e')
+                    ->label('Tanggal Kegiatan Berakhir')
+                    ->required(),
+                    
                 Select::make('periode')
                     ->label('Periode')
                     ->required()

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('tingkat_organisasi', 255)->nullable();
             $table->string('nama_organisasi', 255)->nullable();
             $table->string('jbt_organisasi', 255)->nullable();
+            $table->date('tanggal_kegiatan_a', 255)->nullable();
+            $table->date('tanggal_kegiatan_e', 255)->nullable();
             $table->integer('periode')->nullable();
             $table->string('unggah_sk', 255)->nullable();
             $table->integer('status')->default(0);

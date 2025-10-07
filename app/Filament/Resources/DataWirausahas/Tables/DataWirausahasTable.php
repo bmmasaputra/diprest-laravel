@@ -52,9 +52,14 @@ class DataWirausahasTable
                     ->label('Jumlah Peserta')
                     ->numeric()
                     ->sortable(),
+                TextColumn::make('tanggal_kegiatan_a')
+                    ->label('Tanggal kegiatan dimulai')
+                    ->searchable(),
+                TextColumn::make('tanggal_kegiatan_e')
+                    ->label('Tanggal kegiatan berakhir')
+                    ->searchable(),
                 TextColumn::make('tahun_kegiatan')
                     ->label('Tahun Kegiatan')
-                    ->numeric()
                     ->sortable(),
                 TextColumn::make('dokumen_pendukung')
                     ->label('Dokumen Pendukung')

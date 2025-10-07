@@ -43,6 +43,12 @@ class DataOrganisasisTable
                     ->searchable(),
                 TextColumn::make('jbt_organisasi')
                     ->searchable(),
+                TextColumn::make('tanggal_kegiatan_a')
+                    ->label('Tanggal kegiatan dimulai')
+                    ->searchable(),
+                TextColumn::make('tanggal_kegiatan_e')
+                    ->label('Tanggal kegiatan berakhir')
+                    ->searchable(),
                 TextColumn::make('periode')
                     ->sortable(),
                 TextColumn::make('unggah_sk')

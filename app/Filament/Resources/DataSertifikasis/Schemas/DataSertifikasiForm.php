@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\DataSertifikasis\Schemas;
 
+use Filament\Forms\Components\DatePicker;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
@@ -44,6 +45,13 @@ class DataSertifikasiForm
                     ])
                     ->required(),
 
+                DatePicker::make('tanggal_kegiatan_a')
+                    ->label('Tanggal Kegiatan Dimulai')
+                    ->required(),
+                DatePicker::make('tanggal_kegiatan_e')
+                    ->label('Tanggal Kegiatan Berakhir')
+                    ->required(),
+
                 // Tahun kegiatan
                 Select::make('tahun_kegiatan')
                     ->label('Tahun Kegiatan')
@@ -56,6 +64,11 @@ class DataSertifikasiForm
                         '2023' => '2023',
                         '2024' => '2024',
                         '2025' => '2025',
+                        '2026' => '2026',
+                        '2027' => '2027',
+                        '2028' => '2028',
+                        '2029' => '2029',
+                        '2030' => '2030',
                     ])
                     ->required(),
 

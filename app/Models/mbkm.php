@@ -28,6 +28,8 @@ class Mbkm extends Model
         'nama_program',
         'level',
         'jumlah_peserta',
+        'tahun_kegiatan_a',
+        'tanggal_kegiatan_e',
         'tahun_kegiatan',
         'dokumen_pendukung',
         'status',

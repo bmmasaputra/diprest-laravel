@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('nim', 20);
             $table->string('nama_skema_sertifikasi', 255);
             $table->string('tingkat_kegiatan', 255);
+            $table->date('tahun_kegiatan_a', 255)->nullable();
+            $table->date('tanggal_kegiatan_e', 255)->nullable();
             $table->integer('tahun_kegiatan');
             $table->string('dosen_pendamping', 255)->nullable();
             $table->string('file_sertifikat', 255)->nullable();
