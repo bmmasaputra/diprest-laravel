@@ -119,14 +119,21 @@ class DataPembinaanForm
                     ->required(),
 
                 FileUpload::make('unggah_dokumen')
-                    ->label('Unggah Surat Tugas')
+                    ->label('Unggah Surat Tugas (maksimal 1 MB)')
                     ->disk('public')
                     ->directory('sk_surat_reko')
                     ->acceptedFileTypes(['application/pdf'])
-                    ->required(),
+                    ->maxSize(1024) // 1024 KB = 1 MB
+                    ->required()
+                    ->helperText('Surat Tugas wajib diunggah pada bagian ini dalam format PDF.')
+                    ->validationMessages([
+                        'maxSize' => 'Ukuran file tidak boleh lebih dari 1 MB.',
+                        'acceptedFileTypes' => 'Hanya file PDF yang diperbolehkan.',
+                        'required' => 'File Surat Tugas wajib diunggah.',
+                    ]),
 
                 FileUpload::make('unggah_foto')
-                    ->label('Unggah Foto')
+                    ->label('Unggah Foto (maksimal 1 MB)')
                     ->disk('public')
                     ->directory('sk_foto_reko')
                     ->acceptedFileTypes([
@@ -137,7 +144,14 @@ class DataPembinaanForm
                         'image/bmp',
                         'image/tiff',
                     ])
-                    ->required(),
+                    ->maxSize(1024) // 1024 KB = 1 MB
+                    ->required()
+                    ->helperText('Foto wajib diupload pada bagian ini.')
+                    ->validationMessages([
+                        'maxSize' => 'Ukuran file tidak boleh lebih dari 1 MB.',
+                        'acceptedFileTypes' => 'Hanya file gambar yang diperbolehkan.',
+                        'required' => 'File wajib diunggah.',
+                    ]),
             ]);
     }
 }

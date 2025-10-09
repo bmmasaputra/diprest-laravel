@@ -46,7 +46,7 @@ class DataOrganisasiForm
                 DatePicker::make('tanggal_kegiatan_e')
                     ->label('Tanggal Kegiatan Berakhir')
                     ->required(),
-                    
+
                 Select::make('periode')
                     ->label('Periode')
                     ->required()
@@ -57,11 +57,18 @@ class DataOrganisasiForm
                         )
                     ),
                 FileUpload::make('unggah_sk')
-                    ->label('Unggah SK')
+                    ->label('Unggah SK (maksimal 1 MB)')
                     ->disk('public')
                     ->directory('sk_organisasi')
                     ->acceptedFileTypes(['application/pdf'])
-                    ->required(),
+                    ->maxSize(1024) // 1024 KB = 1 MB
+                    ->required()
+                    ->helperText('SK Dosen dan Mahasiswa wajib digabung dalam satu file PDF dan diunggah pada bagian ini.')
+                    ->validationMessages([
+                        'maxSize' => 'Ukuran file tidak boleh lebih dari 1 MB.',
+                        'acceptedFileTypes' => 'Hanya file PDF yang diperbolehkan.',
+                        'required' => 'File SK wajib diunggah.',
+                    ]),
             ]);
     }
 }

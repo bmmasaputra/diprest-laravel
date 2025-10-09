@@ -62,11 +62,18 @@ class PertukaranMahasiswaForm
                     )
                     ->required(),
                 FileUpload::make('dokumen_pendukung')
-                    ->label('Unggah Dokumen Pendukung (PDF)')
+                    ->label('Unggah Dokumen Pendukung (maksimal 1 MB)')
                     ->disk('public')
                     ->directory('mbkm/dokumen_pertukaran_mahasiswa')
                     ->acceptedFileTypes(['application/pdf'])
-                    ->required(),
+                    ->maxSize(1024) // 1024 KB = 1 MB
+                    ->required()
+                    ->helperText('Dokumen Pendukung diunggah pada bagian ini dalam format PDF.')
+                    ->validationMessages([
+                        'maxSize' => 'Ukuran file tidak boleh lebih dari 1 MB.',
+                        'acceptedFileTypes' => 'Hanya file PDF yang diperbolehkan.',
+                        'required' => 'File Dokumen Pendukung wajib diunggah.',
+                    ]),
             ]);
     }
 }

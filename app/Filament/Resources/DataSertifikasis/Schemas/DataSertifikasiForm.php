@@ -79,11 +79,18 @@ class DataSertifikasiForm
 
                 // Upload file sertifikat
                 FileUpload::make('file_sertifikat')
-                    ->label('Unggah Sertifikat')
+                    ->label('Unggah Sertifikat (maksimal 1 MB)')
                     ->disk('public')
                     ->directory('sertifikat')
                     ->acceptedFileTypes(['application/pdf'])
-                    ->required(false),
+                    ->maxSize(1024) // 1024 KB = 1 MB
+                    ->required()
+                    ->helperText('Sertifikat wajib diunggah pada bagian ini dalam format PDF.')
+                    ->validationMessages([
+                        'maxSize' => 'Ukuran file tidak boleh lebih dari 1 MB.',
+                        'acceptedFileTypes' => 'Hanya file PDF yang diperbolehkan.',
+                        'required' => 'File Sertifikat wajib diunggah.',
+                    ]),
             ]);
     }
 }
